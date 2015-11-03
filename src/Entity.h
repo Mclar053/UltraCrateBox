@@ -11,4 +11,13 @@
 
 #include <stdio.h>
 
+class Entity{
+
+    public:
+        Entity();
+        void applyGravity();
+        void move();
+
+};
+
 #endif /* defined(__UltraCrateBox__Entity__) */
