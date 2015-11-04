@@ -23,4 +23,6 @@ class ofApp : public ofBaseApp{
 		void gotMessage(ofMessage msg);
 		Player player;
         ofTrueTypeFont text;
+
+        bool up;
 };

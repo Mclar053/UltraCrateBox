@@ -11,6 +11,7 @@
 Entity::Entity(){
     direction = 1;
     gravity = 0.5;
+    action = true;
 }
 
 void Entity::display(){

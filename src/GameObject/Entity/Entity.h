@@ -26,6 +26,7 @@ public:
     ofVec2f vel; //Velocity
     ofVec2f acc; //Acceleration
     bool action; //Whether the entity has performed it's action e.g. Jumping etc.
+    bool hitFloor;
     int direction; //Direction the entity is facing
     float gravity; //The constant acceleration of gravity
 };

@@ -21,5 +21,8 @@ void Player::moveX(int _dir){
 }
 
 void Player::jump(){
-    vel.y= -20;
+    if(!action){
+        vel.y=-15;
+        action = true;
+    }
 }

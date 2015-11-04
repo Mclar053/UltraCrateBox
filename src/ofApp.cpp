@@ -9,9 +9,14 @@ void ofApp::setup(){
 void ofApp::update(){
     if(player.pos.y<500){
         player.applyGravity();
+        player.hitFloor = false;
     }
-    else{
+    else if(player.pos.y>501 && !player.hitFloor){
+        player.action = false;
+        player.hitFloor = true;
         player.vel.y=0;
+        player.acc.y = 0;
+        player.pos.y=500.5;
     }
     
     if(player.moving){
@@ -26,6 +31,10 @@ void ofApp::update(){
         player.friction();
     }
     
+    if(up){
+        player.jump();
+    }
+    
     player.move();
     
 }
@@ -33,7 +42,7 @@ void ofApp::update(){
 //--------------------------------------------------------------
 void ofApp::draw(){
     player.display();
-    text.drawString("VelX:"+to_string(player.vel.x) +"\nVelY:"+ to_string(player.vel.y) +"\nAccX:"+ to_string(player.acc.x),100,100);
+    text.drawString("VelX:"+to_string(player.vel.x) +"\nVelY:"+ to_string(player.vel.y) +"\nAccX:"+ to_string(player.acc.x)+"\nPosX:"+ to_string(player.pos.x)+"\nPosY:"+ to_string(player.pos.y),100,100);
 
 }
 
@@ -47,16 +56,15 @@ void ofApp::keyPressed(int key){
         player.right = false;
         player.moving = true;
     }
-    if(key == OF_KEY_UP){
-        player.action = true;
-        player.jump();
+    if(key == OF_KEY_UP || key == 'z'){
+        up = true;
     }
 }
 
 //--------------------------------------------------------------
 void ofApp::keyReleased(int key){
-    if(key == OF_KEY_UP){
-        player.action = false;
+    if(key == OF_KEY_UP || key == 'z'){
+        up = false;
     }
     if(key == OF_KEY_RIGHT || key == OF_KEY_LEFT){
         player.moving = false;
