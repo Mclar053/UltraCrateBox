@@ -9,15 +9,12 @@
 #ifndef __UltraCrateBox__Entity__
 #define __UltraCrateBox__Entity__
 
+#include "GameObject.h"
 #include <stdio.h>
 
-class Entity{
-
-    public:
-        Entity();
-        void applyGravity();
-        void move();
-
+class Entity: public GameObject{
+public:
+    Entity();
 };
 
 #endif /* defined(__UltraCrateBox__Entity__) */

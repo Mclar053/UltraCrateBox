@@ -7,3 +7,7 @@
 //
 
 #include "Player.h"
+
+Player::Player(){
+    x=5;
+}

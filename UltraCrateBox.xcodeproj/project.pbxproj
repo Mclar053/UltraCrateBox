@@ -95,8 +95,8 @@
 		6EA0AD231BE96C1D005CF401 /* Sprite */ = {
 			isa = PBXGroup;
 			children = (
-				6EA0AD241BE96C2C005CF401 /* Sprite.cpp */,
 				6EA0AD251BE96C2C005CF401 /* Sprite.h */,
+				6EA0AD241BE96C2C005CF401 /* Sprite.cpp */,
 			);
 			name = Sprite;
 			sourceTree = "<group>";
@@ -104,8 +104,8 @@
 		6EA0AD301BE96E60005CF401 /* Projectile */ = {
 			isa = PBXGroup;
 			children = (
-				6EA0AD311BE96E8A005CF401 /* Projectile.cpp */,
 				6EA0AD321BE96E8A005CF401 /* Projectile.h */,
+				6EA0AD311BE96E8A005CF401 /* Projectile.cpp */,
 			);
 			name = Projectile;
 			sourceTree = "<group>";
@@ -113,10 +113,10 @@
 		6ED8D1651BE8ED79007C4A23 /* Entities */ = {
 			isa = PBXGroup;
 			children = (
-				6ED8D1621BE8EC3C007C4A23 /* Entity.cpp */,
 				6ED8D1631BE8EC3C007C4A23 /* Entity.h */,
+				6ED8D1621BE8EC3C007C4A23 /* Entity.cpp */,
 				6ED8D1681BE8EDAE007C4A23 /* Player */,
-				6ED8D1671BE8EDA9007C4A23 /* Items */,
+				6ED8D1671BE8EDA9007C4A23 /* Pickups */,
 				6ED8D1661BE8EDA1007C4A23 /* Enemies */,
 				6EA0AD301BE96E60005CF401 /* Projectile */,
 			);
@@ -126,26 +126,26 @@
 		6ED8D1661BE8EDA1007C4A23 /* Enemies */ = {
 			isa = PBXGroup;
 			children = (
-				6EA0AD2D1BE96E40005CF401 /* Enemy.cpp */,
 				6EA0AD2E1BE96E40005CF401 /* Enemy.h */,
+				6EA0AD2D1BE96E40005CF401 /* Enemy.cpp */,
 			);
 			name = Enemies;
 			sourceTree = "<group>";
 		};
-		6ED8D1671BE8EDA9007C4A23 /* Items */ = {
+		6ED8D1671BE8EDA9007C4A23 /* Pickups */ = {
 			isa = PBXGroup;
 			children = (
-				6EA0AD2A1BE96E30005CF401 /* Pickup.cpp */,
 				6EA0AD2B1BE96E30005CF401 /* Pickup.h */,
+				6EA0AD2A1BE96E30005CF401 /* Pickup.cpp */,
 			);
-			name = Items;
+			name = Pickups;
 			sourceTree = "<group>";
 		};
 		6ED8D1681BE8EDAE007C4A23 /* Player */ = {
 			isa = PBXGroup;
 			children = (
-				6EA0AD271BE96E23005CF401 /* Player.cpp */,
 				6EA0AD281BE96E23005CF401 /* Player.h */,
+				6EA0AD271BE96E23005CF401 /* Player.cpp */,
 			);
 			name = Player;
 			sourceTree = "<group>";
@@ -153,8 +153,8 @@
 		6ED8D1691BE9291F007C4A23 /* Game Object */ = {
 			isa = PBXGroup;
 			children = (
-				6EA0AD201BE96B21005CF401 /* GameObject.cpp */,
 				6EA0AD211BE96B21005CF401 /* GameObject.h */,
+				6EA0AD201BE96B21005CF401 /* GameObject.cpp */,
 				6ED8D1651BE8ED79007C4A23 /* Entities */,
 			);
 			name = "Game Object";
@@ -194,8 +194,8 @@
 				6EA0AD231BE96C1D005CF401 /* Sprite */,
 				6ED8D1691BE9291F007C4A23 /* Game Object */,
 				E4B69E1D0A3A1BDC003C02F2 /* main.cpp */,
-				E4B69E1E0A3A1BDC003C02F2 /* ofApp.cpp */,
 				E4B69E1F0A3A1BDC003C02F2 /* ofApp.h */,
+				E4B69E1E0A3A1BDC003C02F2 /* ofApp.cpp */,
 			);
 			path = src;
 			sourceTree = SOURCE_ROOT;

@@ -9,13 +9,15 @@
 #ifndef __UltraCrateBox__GameObject__
 #define __UltraCrateBox__GameObject__
 
+#include "ofMain.h"
 #include <stdio.h>
-#include "ofApp.h"
 
 class GameObject{
     
 public:
+    GameObject();
     ofVec2f pos;
+    int x;
     void display();
     
 };
