@@ -10,14 +10,18 @@
 #define __UltraCrateBox__GameObject__
 
 #include "../ofMain.h"
+#include "../Sprite/Sprite.h"
 #include <stdio.h>
 
 class GameObject{
     
 public:
-    GameObject();
+    //Variables
+    Sprite gameSprite;
     ofVec2f pos;
     int x;
+    
+    //Functions
     void display();
     
 };

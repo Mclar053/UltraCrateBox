@@ -16,15 +16,19 @@ class Sprite{
     
 public:
     //Constructors
-    Sprite();
+    Sprite(string _folderPath);
+    Sprite(int _action,int _startRun, int _endRun,string _folderPath);
     
     //Methods
     void display();
-    void createSprite();
+    void createSprite(string _folderPath);
     
     //Properties
     vector<ofImage> sprite;
-    int actionImage; //frame where game object has a single action e.g. jumping
+    int currentFrame; //Current frame that is displayed on the screen
+    int startRunningFrame;
+    int endRunningFrame;
+    int actionFrame; //frame where game object has a single action e.g. jumping
 };
 
 #endif /* defined(__UltraCrateBox__Sprite__) */
