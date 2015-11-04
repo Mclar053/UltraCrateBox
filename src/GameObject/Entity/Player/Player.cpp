@@ -16,6 +16,10 @@ Player::Player(){
 void Player::moveX(int _dir){
     direction = _dir;
     if(moving){
-        pos+=ofVec2f(_dir*3,0);
+        acc.set(_dir*0.1,acc.y);
     }
+}
+
+void Player::jump(){
+    vel.y= -20;
 }

@@ -19,6 +19,7 @@ public:
     
     //Methods
     void moveX(int _dir);
+    void jump();
     
     //Properties
     bool right;

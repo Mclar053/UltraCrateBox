@@ -2,23 +2,39 @@
 
 //--------------------------------------------------------------
 void ofApp::setup(){
-    cout<<player.gameSprite.sprite.size();
+    text.loadFont(OF_TTF_SANS,20);
 }
 
 //--------------------------------------------------------------
 void ofApp::update(){
-
+    if(player.pos.y<500){
+        player.applyGravity();
+    }
+    else{
+        player.vel.y=0;
+    }
+    
+    if(player.moving){
+        if(player.right){
+            player.moveX(1);
+        }
+        else{
+            player.moveX(-1);
+        }
+    }
+    else{
+        player.friction();
+    }
+    
+    player.move();
+    
 }
 
 //--------------------------------------------------------------
 void ofApp::draw(){
     player.display();
-    if(player.right){
-        player.moveX(1);
-    }
-    else{
-        player.moveX(-1);
-    }
+    text.drawString("VelX:"+to_string(player.vel.x) +"\nVelY:"+ to_string(player.vel.y) +"\nAccX:"+ to_string(player.acc.x),100,100);
+
 }
 
 //--------------------------------------------------------------
@@ -33,6 +49,7 @@ void ofApp::keyPressed(int key){
     }
     if(key == OF_KEY_UP){
         player.action = true;
+        player.jump();
     }
 }
 

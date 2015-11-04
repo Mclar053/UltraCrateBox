@@ -34,7 +34,6 @@ void Sprite::createSprite(string _folderPath){
         img.loadImage(dir.getPath(i));
         sprite.push_back(img);
     }
-    cout<<"Created";
 }
 
 void Sprite::display(){
