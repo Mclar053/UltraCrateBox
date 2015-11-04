@@ -18,7 +18,7 @@ public:
     //Constructors
     Sprite();
     Sprite(string _folderPath);
-    Sprite(int _action,int _startRun, int _endRun,string _folderPath);
+    Sprite(int _action,int _startRun, int _endRun,int _stationary,string _folderPath);
     
     //Methods
     void createSprite(string _folderPath);
@@ -30,6 +30,7 @@ public:
     int currentFrame; //Current frame that is displayed on the screen
     int startRunningFrame;
     int endRunningFrame;
+    int stationaryFrame;
     int actionFrame; //frame where game object has a single action e.g. jumping
 };
 

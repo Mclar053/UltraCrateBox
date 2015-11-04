@@ -16,7 +16,7 @@ Sprite::Sprite(string _folderPath):currentFrame(0),actionFrame(0){
     createSprite(_folderPath);
 }
 
-Sprite::Sprite(int _action,int _startRun, int _endRun,string _folderPath):currentFrame(_startRun),actionFrame(_action),startRunningFrame(_startRun),endRunningFrame(_endRun){
+Sprite::Sprite(int _action,int _startRun, int _endRun,int _stationary,string _folderPath):currentFrame(_startRun),actionFrame(_action),startRunningFrame(_startRun),endRunningFrame(_endRun),stationaryFrame(_stationary){
     createSprite(_folderPath);
 }
 

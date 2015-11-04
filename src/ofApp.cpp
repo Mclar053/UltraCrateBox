@@ -25,15 +25,25 @@ void ofApp::draw(){
 void ofApp::keyPressed(int key){
     if(key == OF_KEY_RIGHT){
         player.right = true;
+        player.moving = true;
     }
     else if(key == OF_KEY_LEFT){
         player.right = false;
+        player.moving = true;
+    }
+    if(key == OF_KEY_UP){
+        player.action = true;
     }
 }
 
 //--------------------------------------------------------------
 void ofApp::keyReleased(int key){
-
+    if(key == OF_KEY_UP){
+        player.action = false;
+    }
+    if(key == OF_KEY_RIGHT || key == OF_KEY_LEFT){
+        player.moving = false;
+    }
 }
 
 //--------------------------------------------------------------

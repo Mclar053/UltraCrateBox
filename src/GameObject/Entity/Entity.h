@@ -15,6 +15,11 @@
 class Entity: public GameObject{
 public:
     Entity();
+    
+    void display();
+    
+    bool action;
+    int direction;
 };
 
 #endif /* defined(__UltraCrateBox__Entity__) */
