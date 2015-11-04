@@ -1,9 +1,13 @@
 //
-//  Projectile.cpp
+//  Enemy.cpp
 //  UltraCrateBox
 //
 //  Created by Matthew Clark on 03/11/2015.
 //
 //
 
-#include "Projectile.h"
+#include "Enemy.h"
+
+Enemy::Enemy(){
+    
+}

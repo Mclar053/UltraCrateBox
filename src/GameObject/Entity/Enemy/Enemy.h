@@ -9,6 +9,12 @@
 #ifndef __UltraCrateBox__Enemy__
 #define __UltraCrateBox__Enemy__
 
+#include "Entity.h"
 #include <stdio.h>
+
+class Enemy: public Entity{
+public:
+    Enemy();
+};
 
 #endif /* defined(__UltraCrateBox__Enemy__) */
