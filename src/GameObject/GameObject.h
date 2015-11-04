@@ -9,7 +9,7 @@
 #ifndef __UltraCrateBox__GameObject__
 #define __UltraCrateBox__GameObject__
 
-#include "ofMain.h"
+#include "../ofMain.h"
 #include <stdio.h>
 
 class GameObject{

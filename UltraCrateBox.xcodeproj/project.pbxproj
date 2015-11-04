@@ -95,8 +95,8 @@
 		6EA0AD231BE96C1D005CF401 /* Sprite */ = {
 			isa = PBXGroup;
 			children = (
-				6E3D374A1BEA708B00A6F561 /* Sprite.cpp */,
 				6E3D374B1BEA708B00A6F561 /* Sprite.h */,
+				6E3D374A1BEA708B00A6F561 /* Sprite.cpp */,
 			);
 			name = Sprite;
 			sourceTree = "<group>";
@@ -104,8 +104,8 @@
 		6EA0AD301BE96E60005CF401 /* Projectile */ = {
 			isa = PBXGroup;
 			children = (
-				6E3D375C1BEA70F000A6F561 /* Projectile.cpp */,
 				6E3D375D1BEA70F000A6F561 /* Projectile.h */,
+				6E3D375C1BEA70F000A6F561 /* Projectile.cpp */,
 			);
 			name = Projectile;
 			sourceTree = "<group>";
@@ -113,8 +113,8 @@
 		6ED8D1651BE8ED79007C4A23 /* Entities */ = {
 			isa = PBXGroup;
 			children = (
-				6E3D37501BEA70B000A6F561 /* Entity.cpp */,
 				6E3D37511BEA70B000A6F561 /* Entity.h */,
+				6E3D37501BEA70B000A6F561 /* Entity.cpp */,
 				6ED8D1681BE8EDAE007C4A23 /* Player */,
 				6ED8D1671BE8EDA9007C4A23 /* Pickups */,
 				6ED8D1661BE8EDA1007C4A23 /* Enemies */,
@@ -126,8 +126,8 @@
 		6ED8D1661BE8EDA1007C4A23 /* Enemies */ = {
 			isa = PBXGroup;
 			children = (
-				6E3D37591BEA70E400A6F561 /* Enemy.cpp */,
 				6E3D375A1BEA70E400A6F561 /* Enemy.h */,
+				6E3D37591BEA70E400A6F561 /* Enemy.cpp */,
 			);
 			name = Enemies;
 			sourceTree = "<group>";
@@ -135,8 +135,8 @@
 		6ED8D1671BE8EDA9007C4A23 /* Pickups */ = {
 			isa = PBXGroup;
 			children = (
-				6E3D37561BEA70D600A6F561 /* Pickup.cpp */,
 				6E3D37571BEA70D600A6F561 /* Pickup.h */,
+				6E3D37561BEA70D600A6F561 /* Pickup.cpp */,
 			);
 			name = Pickups;
 			sourceTree = "<group>";
@@ -144,20 +144,20 @@
 		6ED8D1681BE8EDAE007C4A23 /* Player */ = {
 			isa = PBXGroup;
 			children = (
-				6E3D37531BEA70C800A6F561 /* Player.cpp */,
 				6E3D37541BEA70C800A6F561 /* Player.h */,
+				6E3D37531BEA70C800A6F561 /* Player.cpp */,
 			);
 			name = Player;
 			sourceTree = "<group>";
 		};
-		6ED8D1691BE9291F007C4A23 /* Game Object */ = {
+		6ED8D1691BE9291F007C4A23 /* GameObject */ = {
 			isa = PBXGroup;
 			children = (
-				6E3D374D1BEA70A300A6F561 /* GameObject.cpp */,
 				6E3D374E1BEA70A300A6F561 /* GameObject.h */,
+				6E3D374D1BEA70A300A6F561 /* GameObject.cpp */,
 				6ED8D1651BE8ED79007C4A23 /* Entities */,
 			);
-			name = "Game Object";
+			name = GameObject;
 			sourceTree = "<group>";
 		};
 		BB4B014C10F69532006C3DED /* addons */ = {
@@ -192,7 +192,7 @@
 			isa = PBXGroup;
 			children = (
 				6EA0AD231BE96C1D005CF401 /* Sprite */,
-				6ED8D1691BE9291F007C4A23 /* Game Object */,
+				6ED8D1691BE9291F007C4A23 /* GameObject */,
 				E4B69E1D0A3A1BDC003C02F2 /* main.cpp */,
 				E4B69E1F0A3A1BDC003C02F2 /* ofApp.h */,
 				E4B69E1E0A3A1BDC003C02F2 /* ofApp.cpp */,

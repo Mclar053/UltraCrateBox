@@ -1,7 +1,7 @@
 #pragma once
 
 #include "ofMain.h"
-#include "Player.h"
+#include "GameObject/Entity/Player/Player.h"
 
 class ofApp : public ofBaseApp{
 

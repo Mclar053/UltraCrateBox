@@ -10,7 +10,7 @@
 #define __UltraCrateBox__Sprite__
 
 #include <stdio.h>
-#include "ofApp.h"
+#include "../ofMain.h"
 
 class Sprite{
     

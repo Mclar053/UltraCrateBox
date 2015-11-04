@@ -9,7 +9,7 @@
 #ifndef __UltraCrateBox__Pickup__
 #define __UltraCrateBox__Pickup__
 
-#include "Entity.h"
+#include "../Entity.h"
 #include <stdio.h>
 
 class Pickup: public Entity{

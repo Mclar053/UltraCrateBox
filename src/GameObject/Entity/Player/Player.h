@@ -9,7 +9,7 @@
 #ifndef __UltraCrateBox__Player__
 #define __UltraCrateBox__Player__
 
-#include "Entity.h"
+#include "../Entity.h"
 #include <stdio.h>
 
 class Player: public Entity{
