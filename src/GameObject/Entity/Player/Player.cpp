@@ -9,7 +9,7 @@
 #include "Player.h"
 
 Player::Player(){
-    gameSprite = Sprite(5, 1, 6, 0, "/Users/MatthewClark/Documents/University/Goldsmiths/Year1/Intro to Prog/New/Mini Project/aFinalGame/data/player");
+    gameSprite = Sprite(5, 1, 6, 0, "sprites/player/");
     pos.set(100, 100);
 }
 
