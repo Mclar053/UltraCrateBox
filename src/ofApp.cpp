@@ -2,8 +2,7 @@
 
 //--------------------------------------------------------------
 void ofApp::setup(){
-    Player player;
-    cout<<player.x;
+    cout<<player.gameSprite.sprite.size();
 }
 
 //--------------------------------------------------------------
@@ -13,12 +12,23 @@ void ofApp::update(){
 
 //--------------------------------------------------------------
 void ofApp::draw(){
-
+    player.display();
+    if(player.right){
+        player.moveX(1);
+    }
+    else{
+        player.moveX(-1);
+    }
 }
 
 //--------------------------------------------------------------
 void ofApp::keyPressed(int key){
-
+    if(key == OF_KEY_RIGHT){
+        player.right = true;
+    }
+    else if(key == OF_KEY_LEFT){
+        player.right = false;
+    }
 }
 
 //--------------------------------------------------------------

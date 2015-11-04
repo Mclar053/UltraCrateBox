@@ -16,12 +16,14 @@ class Sprite{
     
 public:
     //Constructors
+    Sprite();
     Sprite(string _folderPath);
     Sprite(int _action,int _startRun, int _endRun,string _folderPath);
     
     //Methods
-    void display();
     void createSprite(string _folderPath);
+    void display();
+    void moveNextFrame();
     
     //Properties
     vector<ofImage> sprite;

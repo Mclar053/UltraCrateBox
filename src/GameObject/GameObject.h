@@ -16,13 +16,14 @@
 class GameObject{
     
 public:
-    //Variables
+    GameObject();
+    //Methods
+    void display();
+    
+    //Properties
     Sprite gameSprite;
     ofVec2f pos;
     int x;
-    
-    //Functions
-    void display();
     
 };
 

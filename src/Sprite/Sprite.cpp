@@ -8,11 +8,15 @@
 
 #include "Sprite.h"
 
+Sprite::Sprite(){
+    
+}
+
 Sprite::Sprite(string _folderPath):currentFrame(0),actionFrame(0){
     createSprite(_folderPath);
 }
 
-Sprite::Sprite(int _action,int _startRun, int _endRun,string _folderPath):currentFrame(0),actionFrame(_action),startRunningFrame(_startRun),endRunningFrame(_endRun){
+Sprite::Sprite(int _action,int _startRun, int _endRun,string _folderPath):currentFrame(_startRun),actionFrame(_action),startRunningFrame(_startRun),endRunningFrame(_endRun){
     createSprite(_folderPath);
 }
 
@@ -30,8 +34,18 @@ void Sprite::createSprite(string _folderPath){
         img.loadImage(dir.getPath(i));
         sprite.push_back(img);
     }
+    cout<<"Created";
 }
 
 void Sprite::display(){
     sprite[currentFrame].draw(-sprite[currentFrame].getWidth()/2, -sprite[currentFrame].getHeight()/2, sprite[currentFrame].getWidth(), sprite[currentFrame].getHeight());
+}
+
+void Sprite::moveNextFrame(){
+    if(ofGetFrameNum()%6==0){
+        currentFrame++;
+        if(currentFrame>endRunningFrame){
+            currentFrame=startRunningFrame;
+        }
+    }
 }

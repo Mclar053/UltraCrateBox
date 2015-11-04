@@ -14,7 +14,14 @@
 
 class Player: public Entity{
 public:
+    //Constructors
     Player();
+    
+    //Methods
+    void moveX(int _dir);
+    
+    //Properties
+    bool right;
 };
 
 #endif /* defined(__UltraCrateBox__Player__) */
