@@ -14,7 +14,14 @@
 
 class Enemy: public Entity{
 public:
+    //Constructors
     Enemy();
+    
+    //Methods
+    void changeDirection();
+    
+    //Properties
+    
 };
 
 #endif /* defined(__UltraCrateBox__Enemy__) */

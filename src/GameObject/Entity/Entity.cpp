@@ -12,6 +12,7 @@ Entity::Entity(){
     direction = 1;
     gravity = 0.5;
     action = true;
+    MAX_VEL.set(5, 10);
 }
 
 void Entity::display(){
@@ -19,8 +20,11 @@ void Entity::display(){
         glTranslated(pos.x, pos.y, 0);
         glScalef(direction, 1, 1);
         gameSprite.display();
-        if(!action){
+        if(!action && moving){
             gameSprite.moveNextFrame();
+        }
+        else if(!action && !moving){
+            gameSprite.currentFrame = gameSprite.stationaryFrame;
         }
         else{
             gameSprite.currentFrame = gameSprite.actionFrame;
@@ -33,11 +37,11 @@ void Entity::applyGravity(){
 }
 
 void Entity::friction(){
-    if(vel.x>0.1){
-        acc.x=-0.1;
+    if(vel.x>0.3){
+        acc.x=-0.3;
     }
-    else if(vel.x<-0.1){
-        acc.x=0.1;
+    else if(vel.x<-0.3){
+        acc.x=0.3;
     }
     else{
         stopMoveX();
@@ -46,10 +50,30 @@ void Entity::friction(){
 
 void Entity::move(){
     vel+=acc;
+    speedControl();
     pos+=vel;
+    wallWrap();
+}
+
+void Entity::speedControl(){
+    if(vel.x>MAX_VEL.x){
+        vel.x = MAX_VEL.x;
+    }
+    else if(vel.x<-MAX_VEL.x){
+        vel.x = -MAX_VEL.x;
+    }
 }
 
 void Entity::stopMoveX(){
     vel.x=0;
     acc.x=0;
+}
+
+void Entity::wallWrap(){
+    if(pos.x<-10){
+        pos.x=ofGetWidth()+10;
+    }
+    else if(pos.x>ofGetWidth()+10){
+        pos.x=-10;
+    }
 }

@@ -14,19 +14,29 @@
 
 class Entity: public GameObject{
 public:
+    /*Constructors*/
     Entity();
     
+    /*Methods*/
     void display();
+    
+    //Physics
     void applyGravity();
     void friction();
     void move();
+    void speedControl();
     void stopMoveX();
     
+    //Features
+    void wallWrap();
     
+    /*Properties*/
+    ofVec2f MAX_VEL; //Maximum Velocity
     ofVec2f vel; //Velocity
     ofVec2f acc; //Acceleration
     bool action; //Whether the entity has performed it's action e.g. Jumping etc.
     bool hitFloor;
+    bool moving;
     int direction; //Direction the entity is facing
     float gravity; //The constant acceleration of gravity
 };

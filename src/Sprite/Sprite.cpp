@@ -12,14 +12,17 @@ Sprite::Sprite(){
     
 }
 
+//Constructor for stationary sprites (Tiles, Weapons)
 Sprite::Sprite(string _folderPath):currentFrame(0),actionFrame(0){
     createSprite(_folderPath);
 }
 
+//Constructor for animated sprites (Entity)
 Sprite::Sprite(int _action,int _startRun, int _endRun,int _stationary,string _folderPath):currentFrame(_startRun),actionFrame(_action),startRunningFrame(_startRun),endRunningFrame(_endRun),stationaryFrame(_stationary){
     createSprite(_folderPath);
 }
 
+//Create sprite from folder location provided
 void Sprite::createSprite(string _folderPath){
     //Load all images from folder path requested
     ofDirectory dir(_folderPath);
@@ -36,10 +39,12 @@ void Sprite::createSprite(string _folderPath){
     }
 }
 
+//Display current frame of animation
 void Sprite::display(){
     sprite[currentFrame].draw(-sprite[currentFrame].getWidth()/2, -sprite[currentFrame].getHeight()/2, sprite[currentFrame].getWidth(), sprite[currentFrame].getHeight());
 }
 
+//Moves to next frame every 6 frames and loops the animation
 void Sprite::moveNextFrame(){
     if(ofGetFrameNum()%6==0){
         currentFrame++;

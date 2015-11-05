@@ -16,7 +16,7 @@ Player::Player(){
 void Player::moveX(int _dir){
     direction = _dir;
     if(moving){
-        acc.set(_dir*0.1,acc.y);
+        acc.set(_dir*0.5,acc.y);
     }
 }
 

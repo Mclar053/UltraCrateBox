@@ -23,7 +23,6 @@ public:
     
     //Properties
     bool right;
-    bool moving;
 };
 
 #endif /* defined(__UltraCrateBox__Player__) */
