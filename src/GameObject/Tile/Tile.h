@@ -13,6 +13,15 @@
 #include <stdio.h>
 
 class Tile: public GameObject{
+public:
+    /*Constructors*/
+    Tile();
+    Tile(ofVec2f _pos);
+    
+    /*Methods*/
+    
+    
+    /*Properties*/
     
 };
 

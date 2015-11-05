@@ -3,6 +3,7 @@
 #include "ofMain.h"
 #include "GameObject/Entity/Player/Player.h"
 #include "GameObject/Entity/Enemy/Enemy.h"
+#include "GameObject/Tile/Platform/Platform.h"
 
 class ofApp : public ofBaseApp{
 
@@ -25,6 +26,8 @@ class ofApp : public ofBaseApp{
 		Player player;
         Enemy ene;
         ofTrueTypeFont text;
+    
+        vector<Tile> platforms;
 
         bool up;
 };
