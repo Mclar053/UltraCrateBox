@@ -16,7 +16,7 @@ Player::Player(){
 
 void Player::jump(){
     if(!action){
-        vel.y=-15;
+        vel.y=-MAX_VEL.y;
         action = true;
     }
 }

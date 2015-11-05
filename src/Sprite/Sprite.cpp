@@ -46,7 +46,7 @@ void Sprite::display(){
 
 //Moves to next frame every 6 frames and loops the animation
 void Sprite::moveNextFrame(){
-    if(ofGetFrameNum()%6==0){
+    if(ofGetFrameNum()%5==0){
         currentFrame++;
         if(currentFrame>endRunningFrame){
             currentFrame=startRunningFrame;
