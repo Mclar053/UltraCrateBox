@@ -10,8 +10,10 @@
 
 Platform::Platform():Tile(){
     gameSprite = Sprite("sprites/misc/");
+    size.set(gameSprite.sprite[0].getWidth(), gameSprite.sprite[0].getHeight());
 }
 
 Platform::Platform(ofVec2f _pos):Tile(_pos){
     gameSprite = Sprite("sprites/misc/");
+    size.set(gameSprite.sprite[0].getWidth(), gameSprite.sprite[0].getHeight());
 }

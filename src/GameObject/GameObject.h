@@ -23,6 +23,7 @@ public:
     //Properties
     Sprite gameSprite;
     ofVec2f pos;
+    ofVec2f size;
     int x;
     
 };
