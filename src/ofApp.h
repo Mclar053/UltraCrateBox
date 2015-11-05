@@ -2,6 +2,7 @@
 
 #include "ofMain.h"
 #include "GameObject/Entity/Player/Player.h"
+#include "GameObject/Entity/Enemy/Enemy.h"
 
 class ofApp : public ofBaseApp{
 
@@ -22,6 +23,7 @@ class ofApp : public ofBaseApp{
 		void dragEvent(ofDragInfo dragInfo);
 		void gotMessage(ofMessage msg);
 		Player player;
+        Enemy ene;
         ofTrueTypeFont text;
 
         bool up;

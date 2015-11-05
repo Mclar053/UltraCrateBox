@@ -51,8 +51,30 @@ void Entity::friction(){
 void Entity::move(){
     vel+=acc;
     speedControl();
+    yControl();
     pos+=vel;
     wallWrap();
+}
+
+void Entity::moveX(int _dir){
+    direction = _dir;
+    if(moving){
+        acc.set(_dir*0.5,acc.y);
+    }
+}
+
+void Entity::yControl(){
+    if(pos.y<500){
+        applyGravity();
+        hitFloor = false;
+    }
+    else if(pos.y>501 && !hitFloor){
+        action = false;
+        hitFloor = true;
+        vel.y=0;
+        acc.y = 0;
+        pos.y=500.5;
+    }
 }
 
 void Entity::speedControl(){

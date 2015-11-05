@@ -25,6 +25,8 @@ public:
     void friction();
     void move();
     void speedControl();
+    void moveX(int _dir);
+    void yControl();
     void stopMoveX();
     
     //Features

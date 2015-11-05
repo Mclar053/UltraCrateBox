@@ -11,13 +11,7 @@
 Player::Player(){
     gameSprite = Sprite(5, 1, 6, 0, "sprites/player/");
     pos.set(100, 100);
-}
-
-void Player::moveX(int _dir){
-    direction = _dir;
-    if(moving){
-        acc.set(_dir*0.5,acc.y);
-    }
+    MAX_VEL.set(5, 10);
 }
 
 void Player::jump(){

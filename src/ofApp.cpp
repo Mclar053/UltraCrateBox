@@ -7,17 +7,6 @@ void ofApp::setup(){
 
 //--------------------------------------------------------------
 void ofApp::update(){
-    if(player.pos.y<500){
-        player.applyGravity();
-        player.hitFloor = false;
-    }
-    else if(player.pos.y>501 && !player.hitFloor){
-        player.action = false;
-        player.hitFloor = true;
-        player.vel.y=0;
-        player.acc.y = 0;
-        player.pos.y=500.5;
-    }
     
     if(player.moving){
         if(player.right){
@@ -35,6 +24,8 @@ void ofApp::update(){
         player.jump();
     }
     
+    ene.moveX(1);
+    ene.move();
     player.move();
     
 }
@@ -42,7 +33,10 @@ void ofApp::update(){
 //--------------------------------------------------------------
 void ofApp::draw(){
     player.display();
+    ene.display();
     text.drawString("VelX:"+to_string(player.vel.x) +"\nVelY:"+ to_string(player.vel.y) +"\nAccX:"+ to_string(player.acc.x)+"\nPosX:"+ to_string(player.pos.x)+"\nPosY:"+ to_string(player.pos.y),100,100);
+    
+    text.drawString("VelX:"+to_string(ene.vel.x) +"\nVelY:"+ to_string(ene.vel.y) +"\nAccX:"+ to_string(ene.acc.x)+"\nPosX:"+ to_string(ene.pos.x)+"\nPosY:"+ to_string(ene.pos.y),400,100);
 
 }
 
