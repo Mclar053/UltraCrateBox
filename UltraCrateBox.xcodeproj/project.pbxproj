@@ -14,6 +14,8 @@
 		6E3D37581BEA70D600A6F561 /* Pickup.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6E3D37561BEA70D600A6F561 /* Pickup.cpp */; };
 		6E3D375B1BEA70E400A6F561 /* Enemy.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6E3D37591BEA70E400A6F561 /* Enemy.cpp */; };
 		6E3D375E1BEA70F000A6F561 /* Projectile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6E3D375C1BEA70F000A6F561 /* Projectile.cpp */; };
+		6E3D37661BEB81AA00A6F561 /* Tile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6E3D37641BEB81AA00A6F561 /* Tile.cpp */; };
+		6E3D37691BEB81BD00A6F561 /* Weapon.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6E3D37671BEB81BD00A6F561 /* Weapon.cpp */; };
 		E4328149138ABC9F0047C5CB /* openFrameworksDebug.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E4328148138ABC890047C5CB /* openFrameworksDebug.a */; };
 		E4B69E200A3A1BDC003C02F2 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E4B69E1D0A3A1BDC003C02F2 /* main.cpp */; };
 		E4B69E210A3A1BDC003C02F2 /* ofApp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E4B69E1E0A3A1BDC003C02F2 /* ofApp.cpp */; };
@@ -63,6 +65,10 @@
 		6E3D375A1BEA70E400A6F561 /* Enemy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Enemy.h; path = GameObject/Entity/Enemy/Enemy.h; sourceTree = "<group>"; };
 		6E3D375C1BEA70F000A6F561 /* Projectile.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Projectile.cpp; path = GameObject/Entity/Projectile/Projectile.cpp; sourceTree = "<group>"; };
 		6E3D375D1BEA70F000A6F561 /* Projectile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Projectile.h; path = GameObject/Entity/Projectile/Projectile.h; sourceTree = "<group>"; };
+		6E3D37641BEB81AA00A6F561 /* Tile.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Tile.cpp; path = GameObject/Tile/Tile.cpp; sourceTree = "<group>"; };
+		6E3D37651BEB81AA00A6F561 /* Tile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Tile.h; path = GameObject/Tile/Tile.h; sourceTree = "<group>"; };
+		6E3D37671BEB81BD00A6F561 /* Weapon.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Weapon.cpp; path = GameObject/Weapon/Weapon.cpp; sourceTree = "<group>"; };
+		6E3D37681BEB81BD00A6F561 /* Weapon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Weapon.h; path = GameObject/Weapon/Weapon.h; sourceTree = "<group>"; };
 		E4328143138ABC890047C5CB /* openFrameworksLib.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = openFrameworksLib.xcodeproj; path = ../../../libs/openFrameworksCompiled/project/osx/openFrameworksLib.xcodeproj; sourceTree = SOURCE_ROOT; };
 		E4B69B5B0A3A1756003C02F2 /* UltraCrateBoxDebug.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UltraCrateBoxDebug.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4B69E1D0A3A1BDC003C02F2 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = main.cpp; path = src/main.cpp; sourceTree = SOURCE_ROOT; };
@@ -90,6 +96,24 @@
 			children = (
 			);
 			name = local_addons;
+			sourceTree = "<group>";
+		};
+		6E3D37621BEB813000A6F561 /* Tile */ = {
+			isa = PBXGroup;
+			children = (
+				6E3D37651BEB81AA00A6F561 /* Tile.h */,
+				6E3D37641BEB81AA00A6F561 /* Tile.cpp */,
+			);
+			name = Tile;
+			sourceTree = "<group>";
+		};
+		6E3D37631BEB814800A6F561 /* Weapon */ = {
+			isa = PBXGroup;
+			children = (
+				6E3D37681BEB81BD00A6F561 /* Weapon.h */,
+				6E3D37671BEB81BD00A6F561 /* Weapon.cpp */,
+			);
+			name = Weapon;
 			sourceTree = "<group>";
 		};
 		6EA0AD231BE96C1D005CF401 /* Sprite */ = {
@@ -156,6 +180,8 @@
 				6E3D374E1BEA70A300A6F561 /* GameObject.h */,
 				6E3D374D1BEA70A300A6F561 /* GameObject.cpp */,
 				6ED8D1651BE8ED79007C4A23 /* Entities */,
+				6E3D37621BEB813000A6F561 /* Tile */,
+				6E3D37631BEB814800A6F561 /* Weapon */,
 			);
 			name = GameObject;
 			sourceTree = "<group>";
@@ -303,8 +329,10 @@
 				E4B69E210A3A1BDC003C02F2 /* ofApp.cpp in Sources */,
 				6E3D375E1BEA70F000A6F561 /* Projectile.cpp in Sources */,
 				6E3D374C1BEA708B00A6F561 /* Sprite.cpp in Sources */,
+				6E3D37691BEB81BD00A6F561 /* Weapon.cpp in Sources */,
 				6E3D37521BEA70B000A6F561 /* Entity.cpp in Sources */,
 				6E3D37581BEA70D600A6F561 /* Pickup.cpp in Sources */,
+				6E3D37661BEB81AA00A6F561 /* Tile.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
