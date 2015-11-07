@@ -91,6 +91,10 @@ void Entity::stopMoveX(){
     acc.x=0;
 }
 
+void Entity::checkCollision(){
+    
+}
+
 void Entity::wallWrap(){
     if(pos.x<-10){
         pos.x=ofGetWidth()+10;

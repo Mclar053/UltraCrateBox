@@ -29,6 +29,9 @@ public:
     void yControl();
     void stopMoveX();
     
+    //Collisions
+    void checkCollision();
+    
     //Features
     void wallWrap();
     

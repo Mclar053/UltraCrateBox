@@ -9,7 +9,7 @@
 #include "GameObject.h"
 
 GameObject::GameObject(){
-    size.set(gameSprite.sprite[0].getWidth(), gameSprite.sprite[0].getHeight());
+//    size.set(gameSprite.sprite[0].getWidth(), gameSprite.sprite[0].getHeight());
 }
 
 void GameObject::display(){
