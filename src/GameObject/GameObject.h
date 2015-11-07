@@ -19,6 +19,7 @@ public:
     GameObject();
     //Methods
     void display();
+    void getSize();
     
     //Properties
     Sprite gameSprite;

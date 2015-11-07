@@ -9,7 +9,7 @@
 #include "GameObject.h"
 
 GameObject::GameObject(){
-//    size.set(gameSprite.sprite[0].getWidth(), gameSprite.sprite[0].getHeight());
+    
 }
 
 void GameObject::display(){
@@ -17,4 +17,8 @@ void GameObject::display(){
         glTranslated(pos.x, pos.y, 0);
         gameSprite.display();
     glPopMatrix();
+}
+
+void GameObject::getSize(){
+    size.set(gameSprite.sprite[gameSprite.currentFrame].getWidth(), gameSprite.sprite[gameSprite.currentFrame].getHeight());
 }
