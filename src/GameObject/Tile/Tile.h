@@ -10,6 +10,7 @@
 #define __UltraCrateBox__Tile__
 
 //Includes GameObject reference in Entity
+#include "../GameObject.h"
 #include "../Entity/Entity.h"
 #include <stdio.h>
 
@@ -20,10 +21,11 @@ public:
     Tile(ofVec2f _pos);
     
     /*Methods*/
-    bool detectLeft(Entity &_entity);
-    bool detectRight(Entity &_entity);
-    bool detectTop(Entity &_entity);
-    bool detectBottom(Entity &_entity);
+    bool detectLeft(Entity *_entity);
+    bool detectRight(Entity *_entity);
+    bool detectTop(Entity *_entity);
+    bool detectBottom(Entity *_entity);
+    void getSize();
     
     /*Properties*/
     ofVec2f size;
