@@ -5,7 +5,7 @@ void ofApp::setup(){
     text.loadFont(OF_TTF_SANS,20);
     
     for(int i=0; i<20;i++){
-        platforms.push_back(Platform(ofVec2f(i*61, 500)));
+        platforms.push_back(Platform(ofVec2f(i*60, 500)));
 //        platforms.push_back(Platform(ofVec2f(i*91, 380)));
         platforms.push_back(Platform(ofVec2f(i*120, 110)));
     }
@@ -47,7 +47,6 @@ void ofApp::update(){
 void ofApp::draw(){
     for(auto &_platform: platforms){
         _platform.display();
-//        cout<<_platform.size.x<<" "<<_platform.size.y<<endl;
     }
     player.display();
     ene.display();

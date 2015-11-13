@@ -41,10 +41,10 @@ bool Tile::detectRight(Entity *_entity){
 }
 
 bool Tile::detectTop(Entity *_entity){
-    if(_entity->pos.x+_entity->size.x/2>pos.x-size.x/2 &&
-       _entity->pos.x-_entity->size.x/2<pos.x+size.x/2 &&
-       _entity->pos.y+_entity->size.y/2>pos.y-size.y/2+3 &&
-       _entity->pos.y-_entity->size.y/2<pos.y-size.y/2+6){
+    if(_entity->pos.x+_entity->size.x/2>pos.x-size.x/2-1 &&
+       _entity->pos.x-_entity->size.x/2<pos.x+size.x/2+1 &&
+       _entity->pos.y+_entity->size.y/2>pos.y-size.y/2+1 &&
+       _entity->pos.y-_entity->size.y/2<pos.y){
         return true;
     }
     return false;

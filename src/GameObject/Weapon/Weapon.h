@@ -13,7 +13,9 @@
 #include <stdio.h>
 
 class Weapon: public GameObject{
-    
+public:
+    /*Constructors*/
+    Weapon();
 };
 
 #endif /* defined(__UltraCrateBox__Weapon__) */

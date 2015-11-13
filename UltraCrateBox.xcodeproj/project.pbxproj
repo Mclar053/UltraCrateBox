@@ -18,6 +18,7 @@
 		6E3D37691BEB81BD00A6F561 /* Weapon.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6E3D37671BEB81BD00A6F561 /* Weapon.cpp */; };
 		6E3D376D1BEBA67600A6F561 /* Platform.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6E3D376B1BEBA67600A6F561 /* Platform.cpp */; };
 		6E3D37711BED7CF800A6F561 /* Fire.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6E3D376F1BED7CF800A6F561 /* Fire.cpp */; };
+		6EC699811BF5FAFD00F18DF7 /* Pistol.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6EC6997F1BF5FAFD00F18DF7 /* Pistol.cpp */; };
 		E4328149138ABC9F0047C5CB /* openFrameworksDebug.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E4328148138ABC890047C5CB /* openFrameworksDebug.a */; };
 		E4B69E200A3A1BDC003C02F2 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E4B69E1D0A3A1BDC003C02F2 /* main.cpp */; };
 		E4B69E210A3A1BDC003C02F2 /* ofApp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E4B69E1E0A3A1BDC003C02F2 /* ofApp.cpp */; };
@@ -75,6 +76,8 @@
 		6E3D376C1BEBA67600A6F561 /* Platform.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Platform.h; path = GameObject/Tile/Platform/Platform.h; sourceTree = "<group>"; };
 		6E3D376F1BED7CF800A6F561 /* Fire.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Fire.cpp; path = "../../../../../../c++/openFrameworks/apps/myApps/UltraCrateBox/src/GameObject/Tile/Fire/Fire.cpp"; sourceTree = "<group>"; };
 		6E3D37701BED7CF800A6F561 /* Fire.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Fire.h; path = "../../../../../../c++/openFrameworks/apps/myApps/UltraCrateBox/src/GameObject/Tile/Fire/Fire.h"; sourceTree = "<group>"; };
+		6EC6997F1BF5FAFD00F18DF7 /* Pistol.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Pistol.cpp; path = GameObject/Weapon/Pistol/Pistol.cpp; sourceTree = "<group>"; };
+		6EC699801BF5FAFD00F18DF7 /* Pistol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Pistol.h; path = GameObject/Weapon/Pistol/Pistol.h; sourceTree = "<group>"; };
 		E4328143138ABC890047C5CB /* openFrameworksLib.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = openFrameworksLib.xcodeproj; path = ../../../libs/openFrameworksCompiled/project/osx/openFrameworksLib.xcodeproj; sourceTree = SOURCE_ROOT; };
 		E4B69B5B0A3A1756003C02F2 /* UltraCrateBoxDebug.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UltraCrateBoxDebug.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4B69E1D0A3A1BDC003C02F2 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = main.cpp; path = src/main.cpp; sourceTree = SOURCE_ROOT; };
@@ -120,6 +123,7 @@
 			children = (
 				6E3D37681BEB81BD00A6F561 /* Weapon.h */,
 				6E3D37671BEB81BD00A6F561 /* Weapon.cpp */,
+				6EC6997E1BF5FAE200F18DF7 /* Pistol */,
 			);
 			name = Weapon;
 			sourceTree = "<group>";
@@ -158,6 +162,15 @@
 				6E3D375C1BEA70F000A6F561 /* Projectile.cpp */,
 			);
 			name = Projectile;
+			sourceTree = "<group>";
+		};
+		6EC6997E1BF5FAE200F18DF7 /* Pistol */ = {
+			isa = PBXGroup;
+			children = (
+				6EC699801BF5FAFD00F18DF7 /* Pistol.h */,
+				6EC6997F1BF5FAFD00F18DF7 /* Pistol.cpp */,
+			);
+			name = Pistol;
 			sourceTree = "<group>";
 		};
 		6ED8D1651BE8ED79007C4A23 /* Entities */ = {
@@ -350,6 +363,7 @@
 			files = (
 				6E3D375B1BEA70E400A6F561 /* Enemy.cpp in Sources */,
 				6E3D374F1BEA70A300A6F561 /* GameObject.cpp in Sources */,
+				6EC699811BF5FAFD00F18DF7 /* Pistol.cpp in Sources */,
 				E4B69E200A3A1BDC003C02F2 /* main.cpp in Sources */,
 				6E3D37551BEA70C800A6F561 /* Player.cpp in Sources */,
 				E4B69E210A3A1BDC003C02F2 /* ofApp.cpp in Sources */,
