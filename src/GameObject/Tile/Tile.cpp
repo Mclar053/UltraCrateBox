@@ -43,7 +43,7 @@ bool Tile::detectRight(Entity *_entity){
 bool Tile::detectTop(Entity *_entity){
     if(_entity->pos.x+_entity->size.x/2>pos.x-size.x/2 &&
        _entity->pos.x-_entity->size.x/2<pos.x+size.x/2 &&
-       _entity->pos.y+_entity->size.y/2>pos.y-size.y/2-5 &&
+       _entity->pos.y+_entity->size.y/2>pos.y-size.y/2+3 &&
        _entity->pos.y-_entity->size.y/2<pos.y-size.y/2+10){
         return true;
     }
@@ -55,6 +55,16 @@ bool Tile::detectBottom(Entity *_entity){
        _entity->pos.x-_entity->size.x/2<pos.x+size.x/2-5 &&
        _entity->pos.y+_entity->size.y/2>pos.y+size.y/2-2 &&
        _entity->pos.y-_entity->size.y/2<pos.y+size.y/2+5){
+        return true;
+    }
+    return false;
+}
+
+bool Tile::detectAboveTop(Entity *_entity){
+    if(_entity->pos.x+_entity->size.x/2>pos.x-size.x/2 &&
+       _entity->pos.x-_entity->size.x/2<pos.x+size.x/2 &&
+       _entity->pos.y+_entity->size.y/2>pos.y-size.y/2-5 &&
+       _entity->pos.y-_entity->size.y/2<pos.y-size.y/2-1){
         return true;
     }
     return false;

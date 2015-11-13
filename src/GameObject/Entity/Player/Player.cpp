@@ -18,5 +18,6 @@ void Player::jump(){
     if(!action){
         vel.y=-MAX_VEL.y;
         action = true;
+        hitFloor=false;
     }
 }

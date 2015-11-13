@@ -25,6 +25,7 @@ public:
     bool detectRight(Entity *_entity);
     bool detectTop(Entity *_entity);
     bool detectBottom(Entity *_entity);
+    bool detectAboveTop(Entity *_entity);
     void getSize();
     
     /*Properties*/

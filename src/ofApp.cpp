@@ -4,8 +4,8 @@
 void ofApp::setup(){
     text.loadFont(OF_TTF_SANS,20);
     
-    for(int i=20; i<21;i++){
-        platforms.push_back(Platform(ofVec2f(i*30, 500)));
+    for(int i=0; i<10;i++){
+        platforms.push_back(Platform(ofVec2f(i*60, 500)));
     }
 }
 
@@ -28,6 +28,8 @@ void ofApp::update(){
         player.jump();
     }
     
+    ene.onPlatform=false;
+    player.onPlatform=false;
     for(auto &_platform: platforms){
         checkCollisions(_platform,&player);
         checkCollisions(_platform,&ene);
@@ -36,6 +38,7 @@ void ofApp::update(){
     ene.moveX(1);
     ene.move();
     player.move();
+    cout<<ofGetFrameNum()<<endl;
     
 }
 
@@ -54,7 +57,7 @@ void ofApp::draw(){
     
     text.drawString("SizeX:"+to_string(player.size.x) +"\nSizeY:"+to_string(player.size.y),700,100);
     
-    text.drawString("SizeX:"+to_string(platforms[0].size.x) +"\nSizeY:"+to_string(platforms[0].size.y),100,300);
+    text.drawString("SizeX:"+to_string(platforms[0].size.x) +"\nSizeY:"+to_string(platforms[0].size.y)+"\nPosX:"+to_string(platforms[0].pos.x)+"\nPosY:"+to_string(platforms[0].pos.y),100,300);
 
 }
 
@@ -88,14 +91,22 @@ void ofApp::checkCollisions(Tile _platform, Entity *_entity){
     if(_platform.detectLeft(_entity)){
         _entity->pos.x-=5;
     }
-    if(_platform.detectRight(_entity)){
+    else if(_platform.detectRight(_entity)){
         _entity->pos.x+=5;
     }
     if(_platform.detectTop(_entity)){
-        cout<<"Top!! "<< _platform.pos.x <<endl;
+        _entity->action = false;
+        _entity->vel.y=0;
+        _entity->acc.y=0;
+        _entity->pos.y=_platform.pos.y-_platform.size.y/2-_entity->size.y/2;
     }
-    if(_platform.detectBottom(_entity)){
+    else if(_platform.detectBottom(_entity)){
         cout<<"Bottom!! "<< _platform.pos.x <<endl;
+    }
+    
+    if(_platform.detectAboveTop(_entity)){
+        _entity->onPlatform=true;
+        cout<<"Above"<<endl;
     }
 }
 

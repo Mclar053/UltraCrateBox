@@ -41,6 +41,7 @@ public:
     ofVec2f acc; //Acceleration
     bool action; //Whether the entity has performed it's action e.g. Jumping etc.
     bool hitFloor;
+    bool onPlatform;
     bool moving;
     int direction; //Direction the entity is facing
     float gravity; //The constant acceleration of gravity
