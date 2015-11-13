@@ -29,6 +29,7 @@ void Entity::display(){
         else{
             gameSprite.currentFrame = gameSprite.actionFrame;
         }
+        getSize();
     glPopMatrix();
 }
 
@@ -49,9 +50,9 @@ void Entity::friction(){
 }
 
 void Entity::move(){
+    yControl();
     vel+=acc;
     speedControl();
-    yControl();
     pos+=vel;
     wallWrap();
 }
@@ -64,16 +65,10 @@ void Entity::moveX(int _dir){
 }
 
 void Entity::yControl(){
-    if(pos.y<500){
+    if(!onPlatform){
         applyGravity();
         hitFloor = false;
-    }
-    else if(pos.y>501 && !hitFloor){
-        action = false;
-        hitFloor = true;
-        vel.y=0;
-        acc.y = 0;
-        pos.y=500.5;
+        onPlatform=false;
     }
 }
 
@@ -89,6 +84,10 @@ void Entity::speedControl(){
 void Entity::stopMoveX(){
     vel.x=0;
     acc.x=0;
+}
+
+void Entity::checkCollision(){
+    
 }
 
 void Entity::wallWrap(){
