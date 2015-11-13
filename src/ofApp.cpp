@@ -4,9 +4,10 @@
 void ofApp::setup(){
     text.loadFont(OF_TTF_SANS,20);
     
-    for(int i=0; i<10;i++){
-        platforms.push_back(Platform(ofVec2f(i*60, 500)));
-        platforms.push_back(Platform(ofVec2f(i*90, 400)));
+    for(int i=0; i<20;i++){
+        platforms.push_back(Platform(ofVec2f(i*61, 500)));
+        platforms.push_back(Platform(ofVec2f(i*91, 380)));
+        platforms.push_back(Platform(ofVec2f(i*120, 200)));
     }
 }
 
@@ -89,10 +90,10 @@ void ofApp::keyReleased(int key){
 
 void ofApp::checkCollisions(Tile _platform, Entity *_entity){
     if(_platform.detectLeft(_entity)){
-        _entity->pos.x-=5;
+        _entity->pos.x=_platform.pos.x-_platform.size.x/2-_entity->size.x/2;
     }
     else if(_platform.detectRight(_entity)){
-        _entity->pos.x+=5;
+        _entity->pos.x=_platform.pos.x+_platform.size.x/2+_entity->size.x/2;
     }
     if(_platform.detectTop(_entity)){
         _entity->action = false;
