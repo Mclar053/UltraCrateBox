@@ -6,6 +6,7 @@ void ofApp::setup(){
     
     for(int i=0; i<10;i++){
         platforms.push_back(Platform(ofVec2f(i*60, 500)));
+        platforms.push_back(Platform(ofVec2f(i*90, 400)));
     }
 }
 
@@ -38,7 +39,6 @@ void ofApp::update(){
     ene.moveX(1);
     ene.move();
     player.move();
-    cout<<ofGetFrameNum()<<endl;
     
 }
 
@@ -101,12 +101,13 @@ void ofApp::checkCollisions(Tile _platform, Entity *_entity){
         _entity->pos.y=_platform.pos.y-_platform.size.y/2-_entity->size.y/2;
     }
     else if(_platform.detectBottom(_entity)){
-        cout<<"Bottom!! "<< _platform.pos.x <<endl;
+        _entity->pos.y=_platform.pos.y+_platform.size.y/2+_entity->size.y/2;
+        _entity->vel.y=0;
+        _entity->acc.y=0;
     }
     
     if(_platform.detectAboveTop(_entity)){
         _entity->onPlatform=true;
-        cout<<"Above"<<endl;
     }
 }
 
