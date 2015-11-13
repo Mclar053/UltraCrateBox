@@ -6,8 +6,8 @@ void ofApp::setup(){
     
     for(int i=0; i<20;i++){
         platforms.push_back(Platform(ofVec2f(i*61, 500)));
-        platforms.push_back(Platform(ofVec2f(i*91, 380)));
-        platforms.push_back(Platform(ofVec2f(i*120, 200)));
+//        platforms.push_back(Platform(ofVec2f(i*91, 380)));
+        platforms.push_back(Platform(ofVec2f(i*120, 110)));
     }
 }
 
