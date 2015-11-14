@@ -10,8 +10,9 @@
 
 Player::Player(){
     gameSprite = Sprite(5, 1, 6, 0, "sprites/entities/player/");
+    getSize();
     pos.set(100, 100);
-    MAX_VEL.set(5, 20);
+    MAX_VEL.set(5, 10);
 }
 
 void Player::jump(){

@@ -29,7 +29,6 @@ class ofApp : public ofBaseApp{
         Player player;
         Enemy ene;
     
-    
         ofTrueTypeFont text;
     
         vector<Tile> platforms;

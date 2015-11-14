@@ -12,4 +12,9 @@
 #include "../Weapon.h"
 #include <stdio.h>
 
+class Pistol:public Weapon{
+public:
+    Pistol();
+};
+
 #endif /* defined(__UltraCrateBox__Pistol__) */

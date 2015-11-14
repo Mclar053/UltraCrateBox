@@ -29,7 +29,6 @@ void Entity::display(){
         else{
             gameSprite.currentFrame = gameSprite.actionFrame;
         }
-        getSize();
     glPopMatrix();
 }
 

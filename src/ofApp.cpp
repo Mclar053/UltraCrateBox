@@ -4,10 +4,10 @@
 void ofApp::setup(){
     text.loadFont(OF_TTF_SANS,20);
     
-    for(int i=0; i<20;i++){
-        platforms.push_back(Platform(ofVec2f(i*60, 500)));
-//        platforms.push_back(Platform(ofVec2f(i*91, 380)));
-        platforms.push_back(Platform(ofVec2f(i*120, 110)));
+    for(int i=0; i<50;i++){
+        platforms.push_back(Platform(ofVec2f(i*40, 500)));
+        platforms.push_back(Platform(ofVec2f(i*100, 440)));
+        platforms.push_back(Platform(ofVec2f(i*80, 110)));
     }
 }
 
@@ -91,7 +91,7 @@ void ofApp::checkCollisions(Tile _platform, Entity *_entity){
     if(_platform.detectLeft(_entity)){
         _entity->pos.x=_platform.pos.x-_platform.size.x/2-_entity->size.x/2;
     }
-    else if(_platform.detectRight(_entity)){
+    if(_platform.detectRight(_entity)){
         _entity->pos.x=_platform.pos.x+_platform.size.x/2+_entity->size.x/2;
     }
     if(_platform.detectTop(_entity)){
@@ -100,14 +100,18 @@ void ofApp::checkCollisions(Tile _platform, Entity *_entity){
         _entity->acc.y=0;
         _entity->pos.y=_platform.pos.y-_platform.size.y/2-_entity->size.y/2;
     }
-    else if(_platform.detectBottom(_entity)){
+    if(_platform.detectBottom(_entity)){
         _entity->pos.y=_platform.pos.y+_platform.size.y/2+_entity->size.y/2;
         _entity->vel.y=0;
         _entity->acc.y=0;
     }
     
     if(_platform.detectAboveTop(_entity)){
+        if(_entity->vel.y>0){
+            _entity->vel.y=0;
+        }
         _entity->onPlatform=true;
+        _entity->action = false;
     }
 }
 
