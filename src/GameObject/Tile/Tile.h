@@ -14,6 +14,9 @@
 #include "../Entity/Entity.h"
 #include <stdio.h>
 
+//Base class of all tiles
+
+//Tile inherits from GameObject
 class Tile: public GameObject{
 public:
     /*Constructors*/
@@ -21,11 +24,14 @@ public:
     Tile(ofVec2f _pos);
     
     /*Methods*/
+    //Tile-Entity collision
     bool detectLeft(Entity *_entity);
     bool detectRight(Entity *_entity);
     bool detectTop(Entity *_entity);
     bool detectBottom(Entity *_entity);
     bool detectAboveTop(Entity *_entity);
+    
+    //Gets size of gamesprite (Seemed to not work with the GameObject version. Not sure why)
     void getSize();
     
     /*Properties*/

@@ -12,6 +12,9 @@
 #include "../Tile.h"
 #include <stdio.h>
 
+//This is a placeholder. Will work on later
+
+//Fire inherits from Tile
 class Fire: public Tile{
 public:
     Fire();

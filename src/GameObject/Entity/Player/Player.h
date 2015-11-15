@@ -12,6 +12,7 @@
 #include "../Entity.h"
 #include <stdio.h>
 
+//Player inherits Entity
 class Player: public Entity{
 public:
     //Constructors

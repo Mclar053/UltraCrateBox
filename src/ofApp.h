@@ -24,13 +24,17 @@ class ofApp : public ofBaseApp{
 		void dragEvent(ofDragInfo dragInfo);
 		void gotMessage(ofMessage msg);
 		
+        //Checks collisions between entity and tiles
         void checkCollisions(Tile _platform, Entity *_entity);
     
+        //Signature of a test player and an enemy
         Player player;
-        Enemy ene;
+        Enemy ene; //Enemy type will become different types later
     
+        //Text for testing purposes
         ofTrueTypeFont text;
     
+        //Vector of Tile type objects
         vector<Tile> platforms;
 
         bool up;

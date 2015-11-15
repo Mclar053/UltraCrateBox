@@ -12,6 +12,7 @@
 #include "../Tile.h"
 #include <stdio.h>
 
+//Platform inherits from Tile
 class Platform: public Tile{
 public:
     Platform();

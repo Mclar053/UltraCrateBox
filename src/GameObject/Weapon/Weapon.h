@@ -12,6 +12,12 @@
 #include "../GameObject.h"
 #include <stdio.h>
 
+//This is a placeholder. Will work on later
+
+//Weapons will emit projectiles when used.
+//Base class for all types of weapons. E.g. Pistol, Sword, Laser Rifle etc...
+
+//Weapons inherits from GameObject
 class Weapon: public GameObject{
 public:
     /*Constructors*/

@@ -12,6 +12,12 @@
 #include "../Entity.h"
 #include <stdio.h>
 
+//This is a placeholder. Will work on later
+
+//Projectile will have child classes of different types of projectile, e.g. Bullets...
+//Projectiles will be emitted out of different weapons. E.g Pistol will use bullets
+
+//Projectile inherits from Entity
 class Projectile: public Entity{
 public:
     Projectile();

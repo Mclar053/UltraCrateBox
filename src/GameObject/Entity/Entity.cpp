@@ -36,6 +36,7 @@ void Entity::applyGravity(){
     vel.y+=gravity;
 }
 
+//Applies friction in the x direction to slow down entity
 void Entity::friction(){
     if(vel.x>0.3){
         acc.x=-0.3;
@@ -49,11 +50,11 @@ void Entity::friction(){
 }
 
 void Entity::move(){
-    yControl();
-    vel+=acc;
-    speedControl();
-    pos+=vel;
-    wallWrap();
+    yControl(); //Controls gravity and y speed
+    vel+=acc; //Adds acceleration to velocity
+    speedControl(); //Ensuring entity doesn't move to fast in the x direction
+    pos+=vel; //Adds velocity to position
+    wallWrap(); //Moves entity to other side of screen if entity walks past the edge
 }
 
 void Entity::moveX(int _dir){
@@ -66,7 +67,6 @@ void Entity::moveX(int _dir){
 void Entity::yControl(){
     if(!onPlatform){
         applyGravity();
-        hitFloor = false;
         onPlatform=false;
     }
 }
@@ -83,10 +83,6 @@ void Entity::speedControl(){
 void Entity::stopMoveX(){
     vel.x=0;
     acc.x=0;
-}
-
-void Entity::checkCollision(){
-    
 }
 
 void Entity::wallWrap(){

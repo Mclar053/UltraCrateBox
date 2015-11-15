@@ -12,6 +12,9 @@
 #include "../Entity.h"
 #include <stdio.h>
 
+//This is a placeholder. Will work on later
+
+//Pickups inherit Entity
 class Pickup: public Entity{
 public:
     Pickup();

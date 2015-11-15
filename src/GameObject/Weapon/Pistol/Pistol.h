@@ -12,6 +12,9 @@
 #include "../Weapon.h"
 #include <stdio.h>
 
+//This is a placeholder. Will work on later
+
+//Pistol inherits from Weapon
 class Pistol:public Weapon{
 public:
     Pistol();
