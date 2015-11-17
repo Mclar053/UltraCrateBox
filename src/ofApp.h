@@ -4,6 +4,7 @@
 #include "GameObject/Entity/Player/Player.h"
 #include "GameObject/Entity/Enemy/Enemy.h"
 #include "GameObject/Tile/Platform/Platform.h"
+#include "Level/Level.h"
 
 class ofApp : public ofBaseApp{
 
@@ -27,6 +28,9 @@ class ofApp : public ofBaseApp{
         //Checks collisions between entity and tiles
         void checkCollisions(Tile _platform, Entity *_entity);
     
+        //Creates objects in world from level
+        void createLevel();
+    
         //Signature of a test player and an enemy
         Player player;
         Enemy ene; //Enemy type will become different types later
@@ -36,6 +40,9 @@ class ofApp : public ofBaseApp{
     
         //Vector of Tile type objects
         vector<Tile> platforms;
+    
+        //Level
+//        Level level;
 
         bool up;
 };

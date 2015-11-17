@@ -10,6 +10,7 @@
 #define __UltraCrateBox__Level__
 
 #include "../ofMain.h"
+#include <fstream>
 #include <stdio.h>
 
 class Level{
@@ -18,9 +19,12 @@ public:
     Level();
     
     /*Methods*/
+    void loadLevel();
+    void saveLevel();
+    
     
     /*Properties*/
-    vector<int> level;
+    vector<vector<int>> layout;
 };
 
 #endif /* defined(__UltraCrateBox__Level__) */
