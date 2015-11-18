@@ -26,7 +26,7 @@ class ofApp : public ofBaseApp{
 		void gotMessage(ofMessage msg);
 		
         //Checks collisions between entity and tiles
-        void checkCollisions(Tile _platform, Entity *_entity);
+        void checkCollisions(Tile &_platform, Entity *_entity);
     
         //Creates objects in world from level
         void createLevel();
