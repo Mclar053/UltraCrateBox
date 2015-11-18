@@ -14,6 +14,14 @@ Level::Level(){
     for (auto &i: layout){
         i.resize(33);
     }
+    
+    for (int i=0; i<layout.size(); i++) {
+        for (int j=0; j<layout[i].size(); j++) {
+            if (j%3==0) {
+                 layout[i][j]=1;
+            }
+        }
+    }
 }
    //Level dimensions = [33][46] at platform size = 20px
     /*

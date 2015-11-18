@@ -42,7 +42,7 @@ class ofApp : public ofBaseApp{
         vector<Tile> platforms;
     
         //Level
-//        Level level;
+        Level level;
 
         bool up;
 };

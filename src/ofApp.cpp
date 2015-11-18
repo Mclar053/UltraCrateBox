@@ -4,15 +4,17 @@
 void ofApp::setup(){
     text.loadFont(OF_TTF_SANS,20); //Loads font to text variable
     
+    
+    createLevel();
     //Creates platforms as example and to test
-    for(int i=0; i<53;i++){
-        platforms.push_back(Platform(ofVec2f(i*20, 500)));
-    }
-    for(int i=0; i<20;i++){
-        platforms.push_back(Platform(ofVec2f(i*20, 440)));
-//        platforms.push_back(Platform(ofVec2f(i*100, 440)));
-        platforms.push_back(Platform(ofVec2f(i*80, 110)));
-    }
+//    for(int i=0; i<53;i++){
+//        platforms.push_back(Platform(ofVec2f(i*20, 500)));
+//    }
+//    for(int i=0; i<20;i++){
+//        platforms.push_back(Platform(ofVec2f(i*20, 440)));
+////        platforms.push_back(Platform(ofVec2f(i*100, 440)));
+//        platforms.push_back(Platform(ofVec2f(i*80, 110)));
+//    }
 //    Level level;
 }
 
@@ -41,8 +43,10 @@ void ofApp::update(){
     player.onPlatform=false;
     //For each platform checks if the player is colliding with an entity and changes the onPlatform to true accordingly
     for(auto &_platform: platforms){
-        checkCollisions(_platform,&player);
-        checkCollisions(_platform,&ene);
+        if(abs(_platform.pos.x-player.pos.x)<50 || abs(_platform.pos.y-player.pos.y)<50){
+            checkCollisions(_platform,&player);
+        }
+//        checkCollisions(_platform,&ene);
     }
     
     //Entity Movement
@@ -62,13 +66,14 @@ void ofApp::draw(){
     player.display();
     ene.display();
     
-    text.drawString("VelX:"+to_string(player.vel.x) +"\nVelY:"+ to_string(player.vel.y) +"\nAccX:"+ to_string(player.acc.x)+"\nPosX:"+ to_string(player.pos.x)+"\nPosY:"+ to_string(player.pos.y),100,100);
+//    text.drawString("VelX:"+to_string(player.vel.x) +"\nVelY:"+ to_string(player.vel.y) +"\nAccX:"+ to_string(player.acc.x)+"\nPosX:"+ to_string(player.pos.x)+"\nPosY:"+ to_string(player.pos.y),100,100);
+//    
+//    text.drawString("VelX:"+to_string(ene.vel.x) +"\nVelY:"+ to_string(ene.vel.y) +"\nAccX:"+ to_string(ene.acc.x)+"\nPosX:"+ to_string(ene.pos.x)+"\nPosY:"+ to_string(ene.pos.y),400,100);
+//    
+//    text.drawString("SizeX:"+to_string(player.size.x) +"\nSizeY:"+to_string(player.size.y),700,100);
     
-    text.drawString("VelX:"+to_string(ene.vel.x) +"\nVelY:"+ to_string(ene.vel.y) +"\nAccX:"+ to_string(ene.acc.x)+"\nPosX:"+ to_string(ene.pos.x)+"\nPosY:"+ to_string(ene.pos.y),400,100);
-    
-    text.drawString("SizeX:"+to_string(player.size.x) +"\nSizeY:"+to_string(player.size.y),700,100);
-    
-    text.drawString("SizeX:"+to_string(platforms[0].size.x) +"\nSizeY:"+to_string(platforms[0].size.y)+"\nPosX:"+to_string(platforms[0].pos.x)+"\nPosY:"+to_string(platforms[0].pos.y),100,300);
+//    text.drawString("SizeX:"+to_string(platforms[0].size.x) +"\nSizeY:"+to_string(platforms[0].size.y)+"\nPosX:"+to_string(platforms[0].pos.x)+"\nPosY:"+to_string(platforms[0].pos.y),100,300);
+    text.drawString(to_string(ofGetFrameRate()), 100, 300);
 
 }
 
@@ -137,7 +142,18 @@ void ofApp::checkCollisions(Tile _platform, Entity *_entity){
 }
 
 void ofApp::createLevel(){
-    
+    for(int j=0; j<level.layout[0].size(); j++)
+    {
+        for(int i=0; i<level.layout.size(); i++)
+        {
+            switch(level.layout[i][j])
+            {
+                case 1:
+                    platforms.push_back(Platform(ofVec2f(i*20,j*20)));
+                    break;
+            }
+        }
+    }
 }
 
 //--------------------------------------------------------------
