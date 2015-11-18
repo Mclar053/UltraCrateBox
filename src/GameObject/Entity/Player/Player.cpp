@@ -11,7 +11,12 @@
 Player::Player(){
     gameSprite = Sprite(5, 1, 6, 0, "sprites/entities/player/");
     getSize();
-    pos.set(100, 100);
+    MAX_VEL.set(5, 10);
+}
+
+Player::Player(ofVec2f _pos):Entity(_pos){
+    gameSprite = Sprite(5, 1, 6, 0, "sprites/entities/player/");
+    getSize();
     MAX_VEL.set(5, 10);
 }
 

@@ -97,15 +97,6 @@ void ofApp::checkCollisions(Tile &_platform, Entity *_entity){
             _entity->acc.y=0;
         }
         
-        //Detects the top of the tile
-        else if(_platform.detectTop(_entity)){
-            _entity->action = false; //Entities can now jump
-            _entity->vel.y=0; //Velocity set to 0, prevent clipping
-            _entity->acc.y=0; //Acceleration set to 0, prevent clipping
-            _entity->pos.y=_platform.pos.y-_platform.size.y/2-_entity->size.y/2;
-            //Changes position of entity to above the top of the tile so the entity is in a 'buffer zone' meaning that the entity is not falling due to gravity but can still run and jump
-        }
-
         //Detect if left of tile is colliding with the entity
         else if(_platform.detectLeft(_entity)){
             _entity->pos.x=_platform.pos.x-_platform.size.x/2-_entity->size.x/2; //Changes position of entity to side of tile thus not making the entity clip through the tile
@@ -114,6 +105,15 @@ void ofApp::checkCollisions(Tile &_platform, Entity *_entity){
         //Same but with the right of the tile
         else if(_platform.detectRight(_entity)){
             _entity->pos.x=_platform.pos.x+_platform.size.x/2+_entity->size.x/2; //Changes position of entity to side of tile thus not making the entity clip through the tile
+        }
+        
+        //Detects the top of the tile
+        else if(_platform.detectTop(_entity)){
+            _entity->action = false; //Entities can now jump
+            _entity->vel.y=0; //Velocity set to 0, prevent clipping
+            _entity->acc.y=0; //Acceleration set to 0, prevent clipping
+            _entity->pos.y=_platform.pos.y-_platform.size.y/2-_entity->size.y/2;
+            //Changes position of entity to above the top of the tile so the entity is in a 'buffer zone' meaning that the entity is not falling due to gravity but can still run and jump
         }
 
         

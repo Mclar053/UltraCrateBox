@@ -21,6 +21,7 @@
 class Projectile: public Entity{
 public:
     Projectile();
+    Projectile(ofVec2f _pos);
 };
 
 #endif /* defined(__UltraCrateBox__Projectile__) */

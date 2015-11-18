@@ -20,6 +20,7 @@ class Enemy: public Entity{
 public:
     //Constructors
     Enemy();
+    Enemy(ofVec2f _pos);
     
     //Methods
     void changeDirection();

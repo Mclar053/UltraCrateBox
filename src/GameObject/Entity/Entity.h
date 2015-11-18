@@ -17,6 +17,7 @@ class Entity: public GameObject{
 public:
     /*Constructors*/
     Entity();
+    Entity(ofVec2f _pos);
     
     /*Methods*/
     void display();

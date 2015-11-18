@@ -11,3 +11,7 @@
 Projectile::Projectile(){
     
 }
+
+Projectile::Projectile(ofVec2f _pos):Entity(_pos){
+    
+}

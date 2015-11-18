@@ -17,6 +17,7 @@ class GameObject{
     
 public:
     GameObject();
+    GameObject(ofVec2f _pos);
     //Methods
     void display();
     void getSize();

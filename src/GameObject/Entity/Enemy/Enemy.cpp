@@ -11,7 +11,13 @@
 Enemy::Enemy(){
     gameSprite = Sprite(5, 1, 6, 0, "sprites/entities/drone/");
     getSize();
-    pos.set(100, 100);
+    moving=true;
+    MAX_VEL.set(2, 10);
+}
+
+Enemy::Enemy(ofVec2f _pos):Entity(_pos){
+    gameSprite = Sprite(5, 1, 6, 0, "sprites/entities/drone/");
+    getSize();
     moving=true;
     MAX_VEL.set(2, 10);
 }

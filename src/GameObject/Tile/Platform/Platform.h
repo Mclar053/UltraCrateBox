@@ -16,7 +16,7 @@
 class Platform: public Tile{
 public:
     Platform();
-    Platform(ofVec2f);
+    Platform(ofVec2f _pos);
 };
 
 #endif /* defined(__UltraCrateBox__Platform__) */

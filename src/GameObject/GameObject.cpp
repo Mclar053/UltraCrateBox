@@ -12,6 +12,10 @@ GameObject::GameObject(){
     
 }
 
+GameObject::GameObject(ofVec2f _pos){
+    pos = _pos;
+}
+
 //Displays the gamesprite and places the sprite into the correct position on the screen
 void GameObject::display(){
     glPushMatrix();

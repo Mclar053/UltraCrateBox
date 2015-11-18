@@ -17,6 +17,7 @@ class Player: public Entity{
 public:
     //Constructors
     Player();
+    Player(ofVec2f _pos);
     
     //Methods
     void jump();

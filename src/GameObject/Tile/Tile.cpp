@@ -8,12 +8,12 @@
 
 #include "Tile.h"
 
-Tile::Tile(){
-    pos.set(100, 100);
+Tile::Tile():GameObject(ofVec2f(100,100)){
+    
 }
 
-Tile::Tile(ofVec2f _pos){
-    pos = _pos;
+Tile::Tile(ofVec2f _pos):GameObject(_pos){
+    
 }
 
 void Tile::getSize(){

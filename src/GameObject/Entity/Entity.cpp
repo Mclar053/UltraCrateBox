@@ -8,11 +8,15 @@
 
 #include "Entity.h"
 
-Entity::Entity(){
+Entity::Entity():GameObject(ofVec2f(100, 100)){
     direction = 1;
     gravity = 0.5;
     action = true;
     MAX_VEL.set(5, 10);
+}
+
+Entity::Entity(ofVec2f _pos):GameObject(_pos){
+    
 }
 
 void Entity::display(){
