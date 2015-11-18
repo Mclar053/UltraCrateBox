@@ -16,7 +16,10 @@ Entity::Entity():GameObject(ofVec2f(100, 100)){
 }
 
 Entity::Entity(ofVec2f _pos):GameObject(_pos){
-    
+    direction = 1;
+    gravity = 0.5;
+    action = true;
+    MAX_VEL.set(5, 10);
 }
 
 void Entity::display(){
@@ -64,7 +67,7 @@ void Entity::move(){
 void Entity::moveX(int _dir){
     direction = _dir;
     if(moving){
-        acc.set(_dir*0.5,acc.y);
+        acc.set(direction*0.5,acc.y);
     }
 }
 
@@ -96,4 +99,11 @@ void Entity::wallWrap(){
     else if(pos.x>ofGetWidth()+10){
         pos.x=-10;
     }
+}
+
+bool Entity::checkWall(){
+    if(pos.x<5 || pos.x>ofGetWidth()+5){
+        return true;
+    }
+    return false;
 }

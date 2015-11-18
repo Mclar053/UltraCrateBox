@@ -5,6 +5,7 @@
 #include "GameObject/Entity/Enemy/Enemy.h"
 #include "GameObject/Tile/Platform/Platform.h"
 #include "Level/Level.h"
+#include "GameObject/Entity/Projectile/Projectile.h"
 
 class ofApp : public ofBaseApp{
 
@@ -40,6 +41,7 @@ class ofApp : public ofBaseApp{
     
         //Vector of Tile type objects
         vector<Tile> platforms;
+        vector<Projectile> projectiles;
     
         //Level
         Level level;

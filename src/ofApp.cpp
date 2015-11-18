@@ -37,7 +37,12 @@ void ofApp::update(){
         checkCollisions(_platform,&player);
         checkCollisions(_platform,&ene);
     }
-    
+    for (int i=0; i<projectiles.size(); i++){
+        projectiles[i].move();
+        if(projectiles[i].checkWall()){
+            projectiles.erase(projectiles.begin()+i, projectiles.begin()+i+1);
+        }
+    }
     //Entity Movement
     ene.moveX(1); //Sets enemy speed to 1 to the right
     ene.move(); //Actually moves the enemy position and does all physics checks
@@ -51,6 +56,9 @@ void ofApp::draw(){
     //Displays all platforms, player and enemy
     for(auto &_platform: platforms){
         _platform.display();
+    }
+    for(auto &_projectile: projectiles){
+        _projectile.display();
     }
     player.display();
     ene.display();
@@ -71,6 +79,9 @@ void ofApp::keyPressed(int key){
     }
     if(key == OF_KEY_UP || key == 'z'){
         up = true;
+    }
+    if(key=='x'){
+        projectiles.push_back(Projectile(player.pos,player.direction));
     }
 }
 
