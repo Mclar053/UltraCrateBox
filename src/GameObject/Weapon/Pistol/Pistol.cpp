@@ -9,5 +9,7 @@
 #include "Pistol.h"
 
 Pistol::Pistol(){
-    
+    gameSprite = Sprite("sprites/weapons/pistol/");
+    getSize();
 }
+

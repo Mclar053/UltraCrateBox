@@ -2,10 +2,11 @@
 
 //--------------------------------------------------------------
 void ofApp::setup(){
-    text.loadFont(OF_TTF_SANS,20); //Loads font to text variable
+    text.loadFont(OF_TTF_SANS,10); //Loads font to text variable
     
     //Creates level from Level object
     createLevel();
+    posOffset.set(52,54);
 }
 
 //--------------------------------------------------------------
@@ -37,10 +38,12 @@ void ofApp::update(){
         checkCollisions(_platform,&player);
         checkCollisions(_platform,&ene);
     }
-    for (int i=0; i<projectiles.size(); i++){
-        projectiles[i].move();
-        if(projectiles[i].checkWall()){
-            projectiles.erase(projectiles.begin()+i, projectiles.begin()+i+1);
+    if(player.weapons.size()>0){
+        for(int i=0; i<player.weapons[0].ammo.size(); i++){
+            player.weapons[0].ammo[i].move();
+            if(player.weapons[0].ammo[i].checkWall()){
+                player.weapons[0].ammo.erase(player.weapons[0].ammo.begin()+i, player.weapons[0].ammo.begin()+i+1);
+            }
         }
     }
     //Entity Movement
@@ -52,18 +55,23 @@ void ofApp::update(){
 
 //--------------------------------------------------------------
 void ofApp::draw(){
+    glPushMatrix();
+        glTranslated(posOffset.x, posOffset.y, 0);
+        //Displays all platforms, player and enemy
+        for(auto &_platform: platforms){
+            _platform.display();
+        }
+        if(player.weapons.size()>0){
+            for(auto &_projectile: player.weapons[0].ammo){
+                _projectile.display();
+            }
+        }
+        player.display();
+        ene.display();
+    glPopMatrix();
     
-    //Displays all platforms, player and enemy
-    for(auto &_platform: platforms){
-        _platform.display();
-    }
-    for(auto &_projectile: projectiles){
-        _projectile.display();
-    }
-    player.display();
-    ene.display();
+    text.drawString(to_string(int(ofGetFrameRate())), 10,10);
     
-    text.drawString(to_string(ofGetFrameRate()), 100, 300);
 
 }
 
@@ -81,7 +89,7 @@ void ofApp::keyPressed(int key){
         up = true;
     }
     if(key=='x'){
-        projectiles.push_back(Projectile(player.pos,player.direction));
+        player.weapons[0].fire(player);
     }
 }
 

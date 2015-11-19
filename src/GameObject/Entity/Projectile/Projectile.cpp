@@ -9,8 +9,6 @@
 #include "Projectile.h"
 
 Projectile::Projectile(){
-    gameSprite = Sprite(0,0,0,0,"sprites/entities/projectiles/bullet/");
-    getSize();
     moving = true;
     direction = 1;
     gravity = 0;
@@ -20,8 +18,6 @@ Projectile::Projectile(){
 }
 
 Projectile::Projectile(ofVec2f _pos, int &_dir):Entity(_pos){
-    gameSprite = Sprite(0,0,0,0,"sprites/entities/projectiles/bullet/");
-    getSize();
     moving = true;
     direction = _dir;
     gravity = 0;

@@ -26,7 +26,6 @@ public:
     Sprite gameSprite;
     ofVec2f pos;
     ofVec2f size;
-    int x;
     
 };
 

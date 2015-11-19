@@ -94,15 +94,15 @@ void Entity::stopMoveX(){
 
 void Entity::wallWrap(){
     if(pos.x<-10){
-        pos.x=ofGetWidth()+10;
+        pos.x=ofGetWidth()-110;
     }
-    else if(pos.x>ofGetWidth()+10){
+    else if(pos.x>ofGetWidth()-110){
         pos.x=-10;
     }
 }
 
 bool Entity::checkWall(){
-    if(pos.x<5 || pos.x>ofGetWidth()+5){
+    if(pos.x<-9 || pos.x>ofGetWidth()-111){
         return true;
     }
     return false;

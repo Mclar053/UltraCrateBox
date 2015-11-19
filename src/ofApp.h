@@ -5,7 +5,6 @@
 #include "GameObject/Entity/Enemy/Enemy.h"
 #include "GameObject/Tile/Platform/Platform.h"
 #include "Level/Level.h"
-#include "GameObject/Entity/Projectile/Projectile.h"
 
 class ofApp : public ofBaseApp{
 
@@ -45,6 +44,9 @@ class ofApp : public ofBaseApp{
     
         //Level
         Level level;
+    
+        //Position offset
+        ofVec2f posOffset;
 
         bool up;
 };

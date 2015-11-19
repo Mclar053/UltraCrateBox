@@ -17,7 +17,7 @@ Level::Level(){
     
     for (int i=0; i<layout.size(); i++) {
         for (int j=0; j<layout[i].size(); j++) {
-            if (j%4==0) {
+            if (j==32) {
                  layout[i][j]=1;
             }
         }

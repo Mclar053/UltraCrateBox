@@ -10,6 +10,7 @@
 #define __UltraCrateBox__Weapon__
 
 #include "../GameObject.h"
+#include "../Entity/Projectile/Bullet/Bullet.h"
 #include <stdio.h>
 
 //This is a placeholder. Will work on later
@@ -22,6 +23,17 @@ class Weapon: public GameObject{
 public:
     /*Constructors*/
     Weapon();
+    
+    /*Methods*/
+    void checkBullets();
+    void fire(Entity &_entity);
+    
+    /*Properties*/
+    vector<Projectile> ammo;
+    int reloadTime;
+    float range;
+    int damage;
+    bool holdFire;
 };
 
 #endif /* defined(__UltraCrateBox__Weapon__) */

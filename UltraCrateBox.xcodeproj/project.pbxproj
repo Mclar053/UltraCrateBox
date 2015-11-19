@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6E1723191BFE75900000E346 /* Bullet.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6E1723171BFE75900000E346 /* Bullet.cpp */; };
+		6E17231D1BFE794D0000E346 /* Rocket.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6E17231B1BFE794D0000E346 /* Rocket.cpp */; };
 		6E3D374C1BEA708B00A6F561 /* Sprite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6E3D374A1BEA708B00A6F561 /* Sprite.cpp */; };
 		6E3D374F1BEA70A300A6F561 /* GameObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6E3D374D1BEA70A300A6F561 /* GameObject.cpp */; };
 		6E3D37521BEA70B000A6F561 /* Entity.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6E3D37501BEA70B000A6F561 /* Entity.cpp */; };
@@ -56,6 +58,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		6E1723171BFE75900000E346 /* Bullet.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Bullet.cpp; path = GameObject/Entity/Projectile/Bullet/Bullet.cpp; sourceTree = "<group>"; };
+		6E1723181BFE75900000E346 /* Bullet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Bullet.h; path = GameObject/Entity/Projectile/Bullet/Bullet.h; sourceTree = "<group>"; };
+		6E17231B1BFE794D0000E346 /* Rocket.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Rocket.cpp; path = GameObject/Weapon/Rocket/Rocket.cpp; sourceTree = "<group>"; };
+		6E17231C1BFE794D0000E346 /* Rocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Rocket.h; path = GameObject/Weapon/Rocket/Rocket.h; sourceTree = "<group>"; };
 		6E3D374A1BEA708B00A6F561 /* Sprite.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Sprite.cpp; path = Sprite/Sprite.cpp; sourceTree = "<group>"; };
 		6E3D374B1BEA708B00A6F561 /* Sprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Sprite.h; path = Sprite/Sprite.h; sourceTree = "<group>"; };
 		6E3D374D1BEA70A300A6F561 /* GameObject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GameObject.cpp; path = GameObject/GameObject.cpp; sourceTree = "<group>"; };
@@ -113,6 +119,47 @@
 			name = local_addons;
 			sourceTree = "<group>";
 		};
+		6E1723161BFE75690000E346 /* Bullet */ = {
+			isa = PBXGroup;
+			children = (
+				6E1723181BFE75900000E346 /* Bullet.h */,
+				6E1723171BFE75900000E346 /* Bullet.cpp */,
+			);
+			name = Bullet;
+			sourceTree = "<group>";
+		};
+		6E17231A1BFE79350000E346 /* Rocket */ = {
+			isa = PBXGroup;
+			children = (
+				6E17231C1BFE794D0000E346 /* Rocket.h */,
+				6E17231B1BFE794D0000E346 /* Rocket.cpp */,
+			);
+			name = Rocket;
+			sourceTree = "<group>";
+		};
+		6E17231E1BFE79BB0000E346 /* bulletTypes */ = {
+			isa = PBXGroup;
+			children = (
+				6EC6997E1BF5FAE200F18DF7 /* Pistol */,
+			);
+			name = bulletTypes;
+			sourceTree = "<group>";
+		};
+		6E17231F1BFE79C80000E346 /* explosiveTypes */ = {
+			isa = PBXGroup;
+			children = (
+				6E17231A1BFE79350000E346 /* Rocket */,
+			);
+			name = explosiveTypes;
+			sourceTree = "<group>";
+		};
+		6E1723201BFE79D90000E346 /* laserTypes */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = laserTypes;
+			sourceTree = "<group>";
+		};
 		6E3D37621BEB813000A6F561 /* Tile */ = {
 			isa = PBXGroup;
 			children = (
@@ -128,9 +175,11 @@
 		6E3D37631BEB814800A6F561 /* Weapon */ = {
 			isa = PBXGroup;
 			children = (
+				6E1723201BFE79D90000E346 /* laserTypes */,
+				6E17231F1BFE79C80000E346 /* explosiveTypes */,
+				6E17231E1BFE79BB0000E346 /* bulletTypes */,
 				6E3D37681BEB81BD00A6F561 /* Weapon.h */,
 				6E3D37671BEB81BD00A6F561 /* Weapon.cpp */,
-				6EC6997E1BF5FAE200F18DF7 /* Pistol */,
 			);
 			name = Weapon;
 			sourceTree = "<group>";
@@ -167,6 +216,7 @@
 			children = (
 				6E3D375D1BEA70F000A6F561 /* Projectile.h */,
 				6E3D375C1BEA70F000A6F561 /* Projectile.cpp */,
+				6E1723161BFE75690000E346 /* Bullet */,
 			);
 			name = Projectile;
 			sourceTree = "<group>";
@@ -388,6 +438,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6E3D375B1BEA70E400A6F561 /* Enemy.cpp in Sources */,
+				6E17231D1BFE794D0000E346 /* Rocket.cpp in Sources */,
 				6E3D374F1BEA70A300A6F561 /* GameObject.cpp in Sources */,
 				6EC699811BF5FAFD00F18DF7 /* Pistol.cpp in Sources */,
 				E4B69E200A3A1BDC003C02F2 /* main.cpp in Sources */,
@@ -399,6 +450,7 @@
 				6E3D37691BEB81BD00A6F561 /* Weapon.cpp in Sources */,
 				6E3D37521BEA70B000A6F561 /* Entity.cpp in Sources */,
 				6E3D37581BEA70D600A6F561 /* Pickup.cpp in Sources */,
+				6E1723191BFE75900000E346 /* Bullet.cpp in Sources */,
 				6EE40EFA1BFC9BD200DE5FD7 /* Spawner.cpp in Sources */,
 				6E3D376D1BEBA67600A6F561 /* Platform.cpp in Sources */,
 				6E3D37711BED7CF800A6F561 /* Fire.cpp in Sources */,
