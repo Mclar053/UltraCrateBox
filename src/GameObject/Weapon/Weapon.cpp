@@ -10,16 +10,17 @@
 Weapon::Weapon(){}
 
 
-Weapon::Weapon(string _name, char _type, int _damage, int _reload, bool _holdFire):reloadTime(_reload),weaponType(_type),firing(false),fired(false),canFire(true),counter(2),holdFire(_holdFire){
+Weapon::Weapon(string _name, char _type, int _damage, int _reload, bool _holdFire):reloadTime(_reload),weaponType(_type),firing(false),fired(false),canFire(true),counter(0),holdFire(_holdFire){
     gameSprite = Sprite("sprites/weapons/"+_name+"/");
     damage = _damage;
+    name = _name;
     pos = ofVec2f(5,0);
 }
 
 void Weapon::checkBullets(){
     for (int i=0; i<ammo.size(); i++){
-        ammo[i].move();
-        if(ammo[i].checkWall()){
+        ammo[i]->move();
+        if(ammo[i]->checkWall()){
             ammo.erase(ammo.begin()+i, ammo.begin()+i+1);
         }
     }
@@ -40,7 +41,7 @@ void Weapon::fireWeapon(Entity &_entity){
 
 void Weapon::checkRecharge()//Checks if the weapon can be fired again
 {
-    if(reloadTime-counter==reloadTime)
+    if(reloadTime-counter>=reloadTime)
     {
         canFire=true;
         counter=reloadTime;
@@ -70,7 +71,7 @@ void Weapon::resetWeapon()//Resets the weapon so that it is not firing
 }
 
 void Weapon::fire(Entity &_entity){
-    ammo.push_back(Projectile(_entity.pos,_entity.direction, checkWeaponType(),damage));
+    ammo.push_back(new Projectile(_entity.pos,_entity.direction, checkWeaponType(),damage));
 }
 
 string Weapon::checkWeaponType(){

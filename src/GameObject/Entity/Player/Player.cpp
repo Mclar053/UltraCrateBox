@@ -13,13 +13,13 @@ Player::Player(){}
 Player::Player(ofVec2f _pos):Entity(_pos),currentWeapon(0){
     gameSprite = Sprite(5, 1, 6, 0, "sprites/entities/player/");
     getSize();
-    moving = false;xxx
+    moving = false;
     MAX_VEL.set(5, 10);
-    weapons.push_back(Weapon("pistol",'b',1,-1
+    weapons.push_back(new Pistol("pistol",'b',1,-1
                              ,false));
-    weapons.push_back(Weapon("rocket",'e',30,60,true));
-    weapons.push_back(Weapon("pistol",'b',5,-1,false));
-    weapons.push_back(Weapon("pistol",'b',2,3,true));
+    weapons.push_back(new Weapon("rocket",'e',30,60,true));
+    weapons.push_back(new Weapon("pistol",'b',5,-1,false));
+    weapons.push_back(new Weapon("pistol",'b',2,3,true));
 }
 
 void Player::display(){
@@ -27,7 +27,7 @@ void Player::display(){
     glTranslated(pos.x, pos.y, 0);
     glScalef(direction, 1, 1);
     gameSprite.display();
-    weapons[currentWeapon].display();
+    weapons[currentWeapon]->display();
     if(!action && moving){
         gameSprite.moveNextFrame();
     }

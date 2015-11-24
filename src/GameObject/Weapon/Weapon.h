@@ -10,7 +10,10 @@
 #define __UltraCrateBox__Weapon__
 
 #include "../GameObject.h"
-#include "../Entity/Projectile/Projectile.h"
+#include "../Entity/Projectile/Bullet/Bullet.h"
+//#include "../Entity/Projectile/Explosive/Explosive.h"
+//#include "../Entity/Projectile/Bullet/Bullet.h"
+//#include "../Entity/Projectile/Bullet/Bullet.h"
 #include <stdio.h>
 
 //Weapons will emit projectiles when used.
@@ -34,12 +37,13 @@ public:
     void resetWeapon();
     
     /*Properties*/
-    vector<Projectile> ammo;
+    vector<Projectile*> ammo;
     int reloadTime;
     float range;
     int damage;
     bool holdFire;
     char weaponType;
+    string name;
     
     //Firing controls
     bool firing;
