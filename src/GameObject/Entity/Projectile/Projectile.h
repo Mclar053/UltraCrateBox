@@ -20,8 +20,13 @@
 //Projectile inherits from Entity
 class Projectile: public Entity{
 public:
-    Projectile();
-    Projectile(ofVec2f _pos, int &_dir);
+    Projectile(ofVec2f _pos, int &_dir, string _type, int _damage);
+
+    void sineMe();
+    int checkExplodeRadius(string _type);
+    
+    int damage;
+    int explosionRadius;
 };
 
 #endif /* defined(__UltraCrateBox__Projectile__) */

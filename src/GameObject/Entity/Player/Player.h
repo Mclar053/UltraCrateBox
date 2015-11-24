@@ -10,7 +10,7 @@
 #define __UltraCrateBox__Player__
 
 #include "../Entity.h"
-#include "../../Weapon/Pistol/Pistol.h"
+#include "../../Weapon/Weapon.h"
 #include <stdio.h>
 
 //Player inherits Entity
@@ -27,6 +27,7 @@ public:
     //Properties
     bool right;
     vector<Weapon> weapons; //Vector of weapons
+    int currentWeapon;
 };
 
 #endif /* defined(__UltraCrateBox__Player__) */

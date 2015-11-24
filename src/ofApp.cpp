@@ -3,10 +3,11 @@
 //--------------------------------------------------------------
 void ofApp::setup(){
     text.loadFont(OF_TTF_SANS,10); //Loads font to text variable
+    player = Player(ofVec2f(100,300));
     
     //Creates level from Level object
     createLevel();
-    posOffset.set(52,54);
+    posOffset.set(52,44);
 }
 
 //--------------------------------------------------------------
@@ -38,11 +39,15 @@ void ofApp::update(){
         checkCollisions(_platform,&player);
         checkCollisions(_platform,&ene);
     }
+    
+    player.weapons[player.currentWeapon].fireWeapon(player);
+    
     if(player.weapons.size()>0){
-        for(int i=0; i<player.weapons[0].ammo.size(); i++){
-            player.weapons[0].ammo[i].move();
-            if(player.weapons[0].ammo[i].checkWall()){
-                player.weapons[0].ammo.erase(player.weapons[0].ammo.begin()+i, player.weapons[0].ammo.begin()+i+1);
+        for(int i=0; i<player.weapons[player.currentWeapon].ammo.size(); i++){
+            player.weapons[player.currentWeapon].ammo[i].move();
+//            player.weapons[0].ammo[i].sineMe();
+            if(player.weapons[player.currentWeapon].ammo[i].checkWall()){
+                player.weapons[player.currentWeapon].ammo.erase(player.weapons[player.currentWeapon].ammo.begin()+i, player.weapons[player.currentWeapon].ammo.begin()+i+1);
             }
         }
     }
@@ -62,7 +67,7 @@ void ofApp::draw(){
             _platform.display();
         }
         if(player.weapons.size()>0){
-            for(auto &_projectile: player.weapons[0].ammo){
+            for(auto &_projectile: player.weapons[player.currentWeapon].ammo){
                 _projectile.display();
             }
         }
@@ -88,8 +93,9 @@ void ofApp::keyPressed(int key){
     if(key == OF_KEY_UP || key == 'z'){
         up = true;
     }
+    if(int(key)>48 && int(key)<57){player.currentWeapon = int(key)-48;}
     if(key=='x'){
-        player.weapons[0].fire(player);
+        player.weapons[player.currentWeapon].checkHoldFire(player);
     }
 }
 
@@ -100,6 +106,9 @@ void ofApp::keyReleased(int key){
     }
     if(key == OF_KEY_RIGHT || key == OF_KEY_LEFT){
         player.moving = false;
+    }
+    if(key=='x'){
+        player.weapons[player.currentWeapon].resetWeapon();
     }
 }
 

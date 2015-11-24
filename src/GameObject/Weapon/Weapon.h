@@ -10,23 +10,28 @@
 #define __UltraCrateBox__Weapon__
 
 #include "../GameObject.h"
-#include "../Entity/Projectile/Bullet/Bullet.h"
+#include "../Entity/Projectile/Projectile.h"
 #include <stdio.h>
 
-//This is a placeholder. Will work on later
-
 //Weapons will emit projectiles when used.
-//Base class for all types of weapons. E.g. Pistol, Sword, Laser Rifle etc...
 
 //Weapons inherits from GameObject
 class Weapon: public GameObject{
 public:
     /*Constructors*/
     Weapon();
+    Weapon(string _name, char _type, int _damage, int _reload, bool _holdFire);
     
     /*Methods*/
     void checkBullets();
+    string checkWeaponType();
+    
+    //Firing controls
+    void fireWeapon(Entity &_entity);
     void fire(Entity &_entity);
+    void checkHoldFire(Entity &_entity);
+    void checkRecharge();
+    void resetWeapon();
     
     /*Properties*/
     vector<Projectile> ammo;
@@ -34,6 +39,13 @@ public:
     float range;
     int damage;
     bool holdFire;
+    char weaponType;
+    
+    //Firing controls
+    bool firing;
+    bool fired;
+    bool canFire;
+    int counter;
 };
 
 #endif /* defined(__UltraCrateBox__Weapon__) */
