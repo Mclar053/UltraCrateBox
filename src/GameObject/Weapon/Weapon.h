@@ -31,7 +31,7 @@ public:
     
     //Firing controls
     void fireWeapon(Entity &_entity);
-    void fire(Entity &_entity);
+    virtual void fire(Entity &_entity);
     void checkHoldFire(Entity &_entity);
     void checkRecharge();
     void resetWeapon();

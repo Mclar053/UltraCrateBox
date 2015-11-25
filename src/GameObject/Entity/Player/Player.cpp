@@ -17,9 +17,9 @@ Player::Player(ofVec2f _pos):Entity(_pos),currentWeapon(0){
     MAX_VEL.set(5, 10);
     weapons.push_back(new Pistol("pistol",'b',1,-1
                              ,false));
-    weapons.push_back(new Weapon("rocket",'e',30,60,true));
-    weapons.push_back(new Weapon("pistol",'b',5,-1,false));
-    weapons.push_back(new Weapon("pistol",'b',2,3,true));
+    weapons.push_back(new Shotgun("shotgun",'b',30,20,true));
+//    weapons.push_back(new Weapon("pistol",'b',5,-1,false));
+//    weapons.push_back(new Weapon("pistol",'b',2,3,true));
 }
 
 void Player::display(){

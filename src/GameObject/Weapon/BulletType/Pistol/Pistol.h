@@ -15,6 +15,8 @@
 class Pistol: public BulletType{
 public:
     Pistol(string _name, char _type, int _damage, int _reload, bool _holdFire);
+    
+    void fire(Entity &_entity);
 };
 
 #endif /* defined(__UltraCrateBox__Pistol__) */
