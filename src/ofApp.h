@@ -27,6 +27,7 @@ class ofApp : public ofBaseApp{
 		
         //Checks collisions between entity and tiles
         void checkCollisions(Tile *_platform, Entity *_entity);
+        void checkEnemyCollision(Projectile &_projectile, Enemy &_enemy);
     
         //Creates objects in world from level
         void createLevel();
@@ -34,6 +35,7 @@ class ofApp : public ofBaseApp{
         //Signature of a test player and an enemy
         Player player;
         Enemy ene; //Enemy type will become different types later
+        vector<Enemy*> enemies;
     
         //Text for testing purposes
         ofTrueTypeFont text;

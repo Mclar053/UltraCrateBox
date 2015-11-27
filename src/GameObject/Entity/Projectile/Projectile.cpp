@@ -8,7 +8,7 @@
 
 #include "Projectile.h"
 
-Projectile::Projectile(ofVec2f _pos, int &_dir, int _damage):Entity(_pos){
+Projectile::Projectile(ofVec2f _pos, int &_dir, int _damage):Entity(_pos),damage(_damage){
     moving = true;
     direction = _dir;
     gravity = 0;

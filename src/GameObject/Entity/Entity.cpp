@@ -8,14 +8,14 @@
 
 #include "Entity.h"
 
-Entity::Entity():GameObject(ofVec2f(100, 100)){
+Entity::Entity():GameObject(ofVec2f(100, 100)),onPlatform(false){
     direction = 1;
     gravity = 0.5;
     action = true;
     MAX_VEL.set(5, 10);
 }
 
-Entity::Entity(ofVec2f _pos):GameObject(_pos){
+Entity::Entity(ofVec2f _pos):GameObject(_pos),onPlatform(false){
     direction = 1;
     gravity = 0.5;
     action = true;

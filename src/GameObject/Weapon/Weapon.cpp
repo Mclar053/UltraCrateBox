@@ -10,9 +10,7 @@
 Weapon::Weapon(){}
 
 
-Weapon::Weapon(string _name, int _damage, int _reload, bool _holdFire):reloadTime(_reload),firing(false),fired(false),canFire(true),counter(0),holdFire(_holdFire){
-    damage = _damage;
-    name = _name;
+Weapon::Weapon(string _name, int _damage, int _reload, bool _holdFire):reloadTime(_reload),firing(false),fired(false),canFire(true),counter(0),holdFire(_holdFire),damage(_damage),name(_name){
     pos = ofVec2f(5,0);
 }
 

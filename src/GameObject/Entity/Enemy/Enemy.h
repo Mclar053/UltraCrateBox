@@ -24,9 +24,11 @@ public:
     
     //Methods
     void changeDirection();
+    void checkAlive();
     
     //Properties
-    
+    int health;
+    bool dead;
 };
 
 #endif /* defined(__UltraCrateBox__Enemy__) */

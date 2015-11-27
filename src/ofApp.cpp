@@ -13,6 +13,10 @@ void ofApp::setup(){
 //--------------------------------------------------------------
 void ofApp::update(){
     
+    if(ofGetFrameNum()%300==0){
+        enemies.push_back(new Enemy(ofVec2f(30,300)));
+    }
+    
     //Player controls
     if(player.moving){
         if(player.right){
@@ -37,7 +41,9 @@ void ofApp::update(){
     //For each platform checks if the player is colliding with an entity and changes the onPlatform to true accordingly
     for(auto _platform: platforms){
         checkCollisions(_platform,&player);
-        checkCollisions(_platform,&ene);
+        for(auto _enemy: enemies){
+            checkCollisions(_platform,_enemy);
+        }
     }
     
     player.weapons[player.currentWeapon]->fireWeapon(player);
@@ -45,9 +51,30 @@ void ofApp::update(){
     for(int i=0; i<player.weapons.size(); i++){
         player.weapons[i]->checkBullets();
     }
+    
+    for(int i=0; i<enemies.size(); i++){
+        enemies[i]->moveX(1);
+        enemies[i]->move();
+        enemies[i]->checkAlive();
+        cout<<i<<" "<<enemies[i]->health<<endl;
+        for(int j=0; j<player.weapons.size(); j++){
+            for(int k=0; k<player.weapons[j]->ammo.size(); k++){
+                if(enemies[i]->checkEntity(player.weapons[j]->ammo[k])){
+                    enemies[i]->health-=player.weapons[j]->ammo[k].damage;
+                    player.weapons[j]->ammo.erase(player.weapons[j]->ammo.begin()+k);
+                }
+            }
+        }
+        if(enemies[i]->dead){
+            delete enemies[i];
+            enemies.erase(enemies.begin()+i);
+        }
+    }
     //Entity Movement
-    ene.moveX(1); //Sets enemy speed to 1 to the right
-    ene.move(); //Actually moves the enemy position and does all physics checks
+//    ene.moveX(1); //Sets enemy speed to 1 to the right
+//    ene.move(); //Actually moves the enemy position and does all physics checks
+    
+    
     player.move(); //Same as previous comment but with player
     
 }
@@ -65,8 +92,12 @@ void ofApp::draw(){
                 _projectile.display();
             }
         }
+    
+    for(int i=0; i<enemies.size(); i++){
+        enemies[i]->display();
+    }
         player.display();
-        ene.display();
+//        ene.display();
     glPopMatrix();
     ofPushStyle();
         ofSetColor(0);
@@ -90,7 +121,7 @@ void ofApp::keyPressed(int key){
     if(key == OF_KEY_UP || key == 'z'){
         up = true;
     }
-    if(int(key)>48 && int(key)<57){player.currentWeapon = int(key)-48;}
+    if(int(key)>=48 && int(key)<57){player.currentWeapon = int(key)-48;}
     if(key=='x'){
         player.weapons[player.currentWeapon]->checkHoldFire(player);
     }
