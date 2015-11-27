@@ -42,14 +42,8 @@ void ofApp::update(){
     
     player.weapons[player.currentWeapon]->fireWeapon(player);
     
-    if(player.weapons.size()>0){
-        for(int i=0; i<player.weapons[player.currentWeapon]->ammo.size(); i++){
-            player.weapons[player.currentWeapon]->ammo[i]->move();
-//            player.weapons[0].ammo[i].sineMe();
-            if(player.weapons[player.currentWeapon]->ammo[i]->checkWall()){
-                player.weapons[player.currentWeapon]->ammo.erase(player.weapons[player.currentWeapon]->ammo.begin()+i, player.weapons[player.currentWeapon]->ammo.begin()+i+1);
-            }
-        }
+    for(int i=0; i<player.weapons.size(); i++){
+        player.weapons[i]->checkBullets();
     }
     //Entity Movement
     ene.moveX(1); //Sets enemy speed to 1 to the right
@@ -66,9 +60,9 @@ void ofApp::draw(){
         for(auto _platform: platforms){
             _platform->display();
         }
-        if(player.weapons.size()>0){
-            for(auto &_projectile: player.weapons[player.currentWeapon]->ammo){
-                _projectile->display();
+        for(int i=0; i<player.weapons.size(); i++){
+            for(auto &_projectile: player.weapons[i]->ammo){
+                _projectile.display();
             }
         }
         player.display();

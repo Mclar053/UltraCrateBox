@@ -33,7 +33,7 @@ public:
     void stopMoveX();
     
     //Collisions
-    void checkCollision();
+    bool checkEntity(Entity &_entity);
     
     //Features
     void wallWrap();

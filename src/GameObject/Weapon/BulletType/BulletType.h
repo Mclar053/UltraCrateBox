@@ -15,9 +15,9 @@
 
 class BulletType:public Weapon{
 public:
-    BulletType(string _name, char _type, int _damage, int _reload, bool _holdFire);
+    BulletType(string _name, int _damage, int _reload, bool _holdFire);
     
-//    void fire(Entity &_entity);
+    void fire(Entity &_entity);
 };
 
 #endif /* defined(__UltraCrateBox__BulletType__) */

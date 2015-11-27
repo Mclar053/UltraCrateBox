@@ -14,7 +14,7 @@
 
 class Shotgun: public BulletType{
 public:
-    Shotgun(string _name, char _type, int _damage, int _reload, bool _holdFire);
+    Shotgun();
     
     void fire(Entity &_entity);
 };

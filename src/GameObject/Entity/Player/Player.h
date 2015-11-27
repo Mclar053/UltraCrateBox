@@ -11,8 +11,14 @@
 
 #include "../Entity.h"
 //#include "../../Weapon/Weapon.h"
+
+//Including bullet type weapons
 #include "../../Weapon/BulletType/Pistol/Pistol.h"
 #include "../../Weapon/BulletType/Shotgun/Shotgun.h"
+#include "../../Weapon/BulletType/MachineGun/MachineGun.h"
+
+//Including explosive type weapons
+#include "../../Weapon/ExplosiveType/Rocket/Rocket.h"
 #include <stdio.h>
 
 //Player inherits Entity

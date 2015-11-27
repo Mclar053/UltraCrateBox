@@ -15,9 +15,10 @@ Player::Player(ofVec2f _pos):Entity(_pos),currentWeapon(0){
     getSize();
     moving = false;
     MAX_VEL.set(5, 10);
-    weapons.push_back(new Pistol("pistol",'b',1,-1
-                             ,false));
-    weapons.push_back(new Shotgun("shotgun",'b',30,20,true));
+    weapons.push_back(new Pistol());
+    weapons.push_back(new Shotgun());
+    weapons.push_back(new Rocket());
+    weapons.push_back(new MachineGun());
 //    weapons.push_back(new Weapon("pistol",'b',5,-1,false));
 //    weapons.push_back(new Weapon("pistol",'b',2,3,true));
 }
@@ -25,9 +26,19 @@ Player::Player(ofVec2f _pos):Entity(_pos),currentWeapon(0){
 void Player::display(){
     glPushMatrix();
     glTranslated(pos.x, pos.y, 0);
+    ofPushStyle();
+    ofSetColor(255, 0, 0);
+    ofFill();
+    ofDrawRectangle(-25, -size.y/2-10, 50, 5);
+    
+    ofSetColor(0, 255, 0);
+    ofFill();
+    ofDrawRectangle(-25, -size.y/2-10, float(weapons[currentWeapon]->counter)/weapons[currentWeapon]->reloadTime*50, 5);
+    ofPopStyle();
     glScalef(direction, 1, 1);
     gameSprite.display();
     weapons[currentWeapon]->display();
+    
     if(!action && moving){
         gameSprite.moveNextFrame();
     }

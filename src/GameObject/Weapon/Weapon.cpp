@@ -10,18 +10,20 @@
 Weapon::Weapon(){}
 
 
-Weapon::Weapon(string _name, char _type, int _damage, int _reload, bool _holdFire):reloadTime(_reload),weaponType(_type),firing(false),fired(false),canFire(true),counter(0),holdFire(_holdFire){
-//    gameSprite = Sprite("sprites/weapons/"+_name+"/");
+Weapon::Weapon(string _name, int _damage, int _reload, bool _holdFire):reloadTime(_reload),firing(false),fired(false),canFire(true),counter(0),holdFire(_holdFire){
     damage = _damage;
     name = _name;
     pos = ofVec2f(5,0);
 }
 
 void Weapon::checkBullets(){
+    
+    
     for (int i=0; i<ammo.size(); i++){
-        ammo[i]->move();
-        if(ammo[i]->checkWall()){
-            ammo.erase(ammo.begin()+i, ammo.begin()+i+1);
+        ammo[i].move();
+        if(ammo[i].checkWall()){
+//            delete ammo[i];
+            ammo.erase(ammo.begin()+i);
         }
     }
 }
@@ -73,21 +75,4 @@ void Weapon::resetWeapon()//Resets the weapon so that it is not firing
 void Weapon::fire(Entity &_entity){
     cout<<"pew"<<endl;
 //    ammo.push_back(new Projectile(_entity.pos,_entity.direction, checkWeaponType(),damage));
-}
-
-string Weapon::checkWeaponType(){
-    switch (weaponType) {
-        case 'b':
-            return "bullet";
-            break;
-        case 'e':
-            return "explosive";
-            break;
-        case 'l':
-            return "laser";
-            break;
-        default:
-            return "bullet";
-            break;
-    }
 }

@@ -11,7 +11,7 @@
 
 #include "../GameObject.h"
 #include "../Entity/Projectile/Bullet/Bullet.h"
-//#include "../Entity/Projectile/Explosive/Explosive.h"
+#include "../Entity/Projectile/Explosive/Explosive.h"
 //#include "../Entity/Projectile/Bullet/Bullet.h"
 //#include "../Entity/Projectile/Bullet/Bullet.h"
 #include <stdio.h>
@@ -23,7 +23,7 @@ class Weapon: public GameObject{
 public:
     /*Constructors*/
     Weapon();
-    Weapon(string _name, char _type, int _damage, int _reload, bool _holdFire);
+    Weapon(string _name, int _damage, int _reload, bool _holdFire);
     
     /*Methods*/
     void checkBullets();
@@ -37,7 +37,7 @@ public:
     void resetWeapon();
     
     /*Properties*/
-    vector<Projectile*> ammo;
+    vector<Projectile> ammo;
     int reloadTime;
     float range;
     int damage;

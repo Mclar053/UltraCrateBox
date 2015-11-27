@@ -14,7 +14,7 @@
 
 class Bullet: public Projectile{
 public:
-    Bullet(ofVec2f _pos, int &_dir, string _type, int _damage);
+    Bullet(ofVec2f _pos, int &_dir, int _damage);
 };
 
 #endif /* defined(__UltraCrateBox__Bullet__) */

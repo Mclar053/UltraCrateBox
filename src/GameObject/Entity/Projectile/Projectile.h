@@ -20,7 +20,7 @@
 //Projectile inherits from Entity
 class Projectile: public Entity{
 public:
-    Projectile(ofVec2f _pos, int &_dir, string _type, int _damage);
+    Projectile(ofVec2f _pos, int &_dir, int _damage);
 
     void sineMe();
     int checkExplodeRadius(string _type);

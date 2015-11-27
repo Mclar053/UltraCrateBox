@@ -26,6 +26,7 @@
 		6E92F4831C0507D7000104FB /* Bullet.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6E92F4811C0507D7000104FB /* Bullet.cpp */; };
 		6E92F4861C0507F2000104FB /* Explosive.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6E92F4841C0507F2000104FB /* Explosive.cpp */; };
 		6E92F4891C050805000104FB /* Laser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6E92F4871C050805000104FB /* Laser.cpp */; };
+		6ECCBA9A1C08868A0012AA69 /* MachineGun.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6ECCBA981C08868A0012AA69 /* MachineGun.cpp */; };
 		6EE40EF01BF8BB6700DE5FD7 /* Level.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6EE40EEE1BF8BB6700DE5FD7 /* Level.cpp */; };
 		6EE40EFA1BFC9BD200DE5FD7 /* Spawner.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6EE40EF81BFC9BD200DE5FD7 /* Spawner.cpp */; };
 		E4328149138ABC9F0047C5CB /* openFrameworksDebug.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E4328148138ABC890047C5CB /* openFrameworksDebug.a */; };
@@ -101,6 +102,8 @@
 		6E92F4851C0507F2000104FB /* Explosive.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Explosive.h; path = GameObject/Entity/Projectile/Explosive/Explosive.h; sourceTree = "<group>"; };
 		6E92F4871C050805000104FB /* Laser.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Laser.cpp; path = GameObject/Entity/Projectile/Laser/Laser.cpp; sourceTree = "<group>"; };
 		6E92F4881C050805000104FB /* Laser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Laser.h; path = GameObject/Entity/Projectile/Laser/Laser.h; sourceTree = "<group>"; };
+		6ECCBA981C08868A0012AA69 /* MachineGun.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = MachineGun.cpp; path = GameObject/Weapon/BulletType/MachineGun/MachineGun.cpp; sourceTree = "<group>"; };
+		6ECCBA991C08868A0012AA69 /* MachineGun.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MachineGun.h; path = GameObject/Weapon/BulletType/MachineGun/MachineGun.h; sourceTree = "<group>"; };
 		6EE40EEE1BF8BB6700DE5FD7 /* Level.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Level.cpp; path = Level/Level.cpp; sourceTree = "<group>"; };
 		6EE40EEF1BF8BB6700DE5FD7 /* Level.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Level.h; path = Level/Level.h; sourceTree = "<group>"; };
 		6EE40EF81BFC9BD200DE5FD7 /* Spawner.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Spawner.cpp; path = GameObject/Tile/Spawner/Spawner.cpp; sourceTree = "<group>"; };
@@ -209,6 +212,7 @@
 				6E92F4701C050656000104FB /* BulletType.h */,
 				6E92F46F1C050656000104FB /* BulletType.cpp */,
 				6E92F4691C0505F0000104FB /* Pistol */,
+				6ECCBA971C08866B0012AA69 /* MachineGun */,
 				6E92F46B1C050605000104FB /* Shotgun */,
 			);
 			name = BulletType;
@@ -277,6 +281,15 @@
 				6E92F47E1C050784000104FB /* Bullet */,
 			);
 			name = Projectile;
+			sourceTree = "<group>";
+		};
+		6ECCBA971C08866B0012AA69 /* MachineGun */ = {
+			isa = PBXGroup;
+			children = (
+				6ECCBA991C08868A0012AA69 /* MachineGun.h */,
+				6ECCBA981C08868A0012AA69 /* MachineGun.cpp */,
+			);
+			name = MachineGun;
 			sourceTree = "<group>";
 		};
 		6ED8D1651BE8ED79007C4A23 /* Entities */ = {
@@ -508,6 +521,7 @@
 				6E3D37711BED7CF800A6F561 /* Fire.cpp in Sources */,
 				6E3D37661BEB81AA00A6F561 /* Tile.cpp in Sources */,
 				6E92F4861C0507F2000104FB /* Explosive.cpp in Sources */,
+				6ECCBA9A1C08868A0012AA69 /* MachineGun.cpp in Sources */,
 				6E92F4891C050805000104FB /* Laser.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

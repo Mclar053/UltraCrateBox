@@ -8,10 +8,10 @@
 
 #include "BulletType.h"
 
-BulletType::BulletType(string _name, char _type, int _damage, int _reload, bool _holdFire):Weapon(_name, _type, _damage, _reload, _holdFire){
+BulletType::BulletType(string _name, int _damage, int _reload, bool _holdFire):Weapon(_name, _damage, _reload, _holdFire){
     
 }
 
-//void BulletType::fire(Entity &_entity){
-//    cout<<"Pew pew"<<endl;
-//}
+void BulletType::fire(Entity &_entity){
+    ammo.push_back(Bullet(_entity.pos,_entity.direction,damage));
+}

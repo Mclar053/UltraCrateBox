@@ -107,3 +107,13 @@ bool Entity::checkWall(){
     }
     return false;
 }
+
+bool Entity::checkEntity(Entity &_entity){
+    if(_entity.pos.x+_entity.size.x/2>pos.x-size.x/2 &&
+       _entity.pos.x-_entity.size.x/2<=pos.x+size.x/2 &&
+       _entity.pos.y+_entity.size.y/2>pos.y-size.y/2 &&
+       _entity.pos.y-_entity.size.y/2<pos.y+size.y/2){
+        return true;
+    }
+    return false;
+}
