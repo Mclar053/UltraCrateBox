@@ -23,7 +23,6 @@ public:
     Projectile(ofVec2f _pos, int &_dir, int _damage);
 
     void sineMe();
-    int checkExplodeRadius(string _type);
     
     int damage;
     int explosionRadius;

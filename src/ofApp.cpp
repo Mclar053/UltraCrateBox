@@ -8,15 +8,125 @@ void ofApp::setup(){
     //Creates level from Level object
     createLevel();
     posOffset.set(52,44);
+    state = 1;
 }
 
 //--------------------------------------------------------------
 void ofApp::update(){
-    
-    if(ofGetFrameNum()%300==0){
-        enemies.push_back(new Enemy(ofVec2f(30,300)));
+    switch (state) {
+        case 1:
+            if(ofGetFrameNum()%90==0){
+                enemies.push_back(new Enemy(ofVec2f(30,300)));
+            }
+            
+            entityControls();
+            collisions();
+            player.move(); //Same as previous comment but with player
+            if(gameOver){
+                state=2;
+            }
+            break;
+            
+        default:
+            break;
+    }
+}
+
+//--------------------------------------------------------------
+void ofApp::draw(){
+    switch(state){
+            case 1:
+                glPushMatrix();
+                glTranslated(posOffset.x, posOffset.y, 0);
+                //Displays all platforms, player and enemy
+                for(auto _platform: platforms){
+                    _platform->display();
+                }
+                for(int i=0; i<player.weapons.size(); i++){
+                    for(auto &_projectile: player.weapons[i]->ammo){
+                        _projectile.display();
+                    }
+                }
+                
+                for(int i=0; i<enemies.size(); i++){
+                    enemies[i]->display();
+                    text.drawString(to_string(i)+": "+to_string(enemies[i]->health), 10, i*10+30);
+                }
+                player.display();
+                glPopMatrix();
+                break;
+            
+            case 2:
+                ofPushStyle();
+                    ofSetColor(0);
+                    text.drawString("Game Over", 50, 10);
+                ofPopStyle();
+                break;
+            default:
+            break;
     }
     
+    ofPushStyle();
+        ofSetColor(0);
+        text.drawString(to_string(int(ofGetFrameRate())), 10,10);
+        text.drawString(player.weapons[player.currentWeapon]->name+" "+to_string(player.weapons[player.currentWeapon]->reloadTime-player.weapons[player.currentWeapon]->counter), 10,20);
+    ofPopStyle();
+    
+
+}
+
+//--------------------------------------------------------------
+void ofApp::keyPressed(int key){
+    switch (state) {
+        case 1:
+            if(key == OF_KEY_RIGHT){
+                player.right = true;
+                player.moving = true;
+            }
+            else if(key == OF_KEY_LEFT){
+                player.right = false;
+                player.moving = true;
+            }
+            if(key == OF_KEY_UP || key == 'z'){
+                up = true;
+            }
+            if(int(key)>=48 && int(key)<57){player.currentWeapon = int(key)-48;}
+            if(key=='x'){
+                player.weapons[player.currentWeapon]->checkHoldFire(player);
+            }
+            break;
+        case 2:
+            state=1;
+            break;
+        default:
+            break;
+    }
+    
+}
+
+//--------------------------------------------------------------
+void ofApp::keyReleased(int key){
+    switch (state) {
+        case 1:
+            if(key == OF_KEY_UP || key == 'z'){
+                up = false;
+            }
+            if(key == OF_KEY_RIGHT || key == OF_KEY_LEFT){
+                player.moving = false;
+            }
+            if(key=='x'){
+                player.weapons[player.currentWeapon]->resetWeapon();
+            }
+            break;
+        case 2:
+            
+            break;
+        default:
+            break;
+    }
+}
+
+void ofApp::entityControls(){
     //Player controls
     if(player.moving){
         if(player.right){
@@ -34,8 +144,34 @@ void ofApp::update(){
         player.jump();
     }
     
+    for(int i=0; i<enemies.size(); i++){
+        enemies[i]->moveX(1);
+        enemies[i]->move();
+        enemies[i]->checkAlive();
+        if(enemies[i]->checkEntity(player)){
+            gameOver=true;
+        }
+        for(int j=0; j<player.weapons.size(); j++){
+            for(int k=0; k<player.weapons[j]->ammo.size(); k++){
+                if(enemies[i]->checkEntity(player.weapons[j]->ammo[k])){
+                    damageEnemies(player.weapons[j]->ammo[k]);
+                    player.weapons[j]->ammo.erase(player.weapons[j]->ammo.begin()+k);
+                }
+            }
+        }
+        if(enemies[i]->dead){
+            delete enemies[i];
+            enemies.erase(enemies.begin()+i);
+        }
+    }
+    player.weapons[player.currentWeapon]->fireWeapon(player);
+}
+
+void ofApp::collisions(){
     //Tile collision routine
-    ene.onPlatform=false;//Sets entities 'onPlatform' bool to false
+    for(auto &_enemy: enemies){
+        _enemy->onPlatform = false;//Sets entities 'onPlatform' bool to false
+    }
     player.onPlatform=false;
     
     //For each platform checks if the player is colliding with an entity and changes the onPlatform to true accordingly
@@ -46,97 +182,8 @@ void ofApp::update(){
         }
     }
     
-    player.weapons[player.currentWeapon]->fireWeapon(player);
-    
     for(int i=0; i<player.weapons.size(); i++){
         player.weapons[i]->checkBullets();
-    }
-    
-    for(int i=0; i<enemies.size(); i++){
-        enemies[i]->moveX(1);
-        enemies[i]->move();
-        enemies[i]->checkAlive();
-        cout<<i<<" "<<enemies[i]->health<<endl;
-        for(int j=0; j<player.weapons.size(); j++){
-            for(int k=0; k<player.weapons[j]->ammo.size(); k++){
-                if(enemies[i]->checkEntity(player.weapons[j]->ammo[k])){
-                    enemies[i]->health-=player.weapons[j]->ammo[k].damage;
-                    player.weapons[j]->ammo.erase(player.weapons[j]->ammo.begin()+k);
-                }
-            }
-        }
-        if(enemies[i]->dead){
-            delete enemies[i];
-            enemies.erase(enemies.begin()+i);
-        }
-    }
-    //Entity Movement
-//    ene.moveX(1); //Sets enemy speed to 1 to the right
-//    ene.move(); //Actually moves the enemy position and does all physics checks
-    
-    
-    player.move(); //Same as previous comment but with player
-    
-}
-
-//--------------------------------------------------------------
-void ofApp::draw(){
-    glPushMatrix();
-        glTranslated(posOffset.x, posOffset.y, 0);
-        //Displays all platforms, player and enemy
-        for(auto _platform: platforms){
-            _platform->display();
-        }
-        for(int i=0; i<player.weapons.size(); i++){
-            for(auto &_projectile: player.weapons[i]->ammo){
-                _projectile.display();
-            }
-        }
-    
-    for(int i=0; i<enemies.size(); i++){
-        enemies[i]->display();
-    }
-        player.display();
-//        ene.display();
-    glPopMatrix();
-    ofPushStyle();
-        ofSetColor(0);
-        text.drawString(to_string(int(ofGetFrameRate())), 10,10);
-        text.drawString(player.weapons[player.currentWeapon]->name+" "+to_string(player.weapons[player.currentWeapon]->reloadTime-player.weapons[player.currentWeapon]->counter), 10,20);
-    ofPopStyle();
-    
-
-}
-
-//--------------------------------------------------------------
-void ofApp::keyPressed(int key){
-    if(key == OF_KEY_RIGHT){
-        player.right = true;
-        player.moving = true;
-    }
-    else if(key == OF_KEY_LEFT){
-        player.right = false;
-        player.moving = true;
-    }
-    if(key == OF_KEY_UP || key == 'z'){
-        up = true;
-    }
-    if(int(key)>=48 && int(key)<57){player.currentWeapon = int(key)-48;}
-    if(key=='x'){
-        player.weapons[player.currentWeapon]->checkHoldFire(player);
-    }
-}
-
-//--------------------------------------------------------------
-void ofApp::keyReleased(int key){
-    if(key == OF_KEY_UP || key == 'z'){
-        up = false;
-    }
-    if(key == OF_KEY_RIGHT || key == OF_KEY_LEFT){
-        player.moving = false;
-    }
-    if(key=='x'){
-        player.weapons[player.currentWeapon]->resetWeapon();
     }
 }
 
@@ -195,6 +242,14 @@ void ofApp::createLevel(){
                     platforms.push_back(new Platform(ofVec2f(i*20,j*20)));
                     break;
             }
+        }
+    }
+}
+
+void ofApp::damageEnemies(Projectile &_projectile){
+    for(auto &_enemy: enemies){
+        if(abs(_projectile.pos.x-_enemy->pos.x)<_projectile.explosionRadius+_projectile.size.x && abs(_projectile.pos.y-_enemy->pos.y)<_projectile.explosionRadius+_projectile.size.y){
+            _enemy->health-=_projectile.damage;
         }
     }
 }
