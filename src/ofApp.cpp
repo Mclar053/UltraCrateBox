@@ -4,14 +4,12 @@
 void ofApp::setup(){
     text.loadFont(OF_TTF_SANS,10); //Loads font to text variable
     scoreText.loadFont(OF_TTF_SANS,30); //Loads font to text variable
-    player = Player(ofVec2f(100,300));
     
     //Creates level from Level object
     createLevel();
     posOffset.set(52,44);
     state = 1;
     score = 0;
-//    enemies.push_back(new Enemy(enemySpawn));
 }
 
 //--------------------------------------------------------------
@@ -282,9 +280,9 @@ void ofApp::createLevel(){
      Number meanings
      0=air
      1=platform
-     2=fire
+     2=player spawn
      3=enemy Spawner
-     4=Player spawn
+     4=fire
      */
 
     
@@ -298,6 +296,7 @@ void ofApp::createLevel(){
                     platforms.push_back(new Platform(ofVec2f(i*20,j*20)));
                     break;
                 case 2:
+                    player = Player(ofVec2f(i*20,j*20));
                     break;
                 case 3:
                     enemySpawn.set(i*20, j*20);

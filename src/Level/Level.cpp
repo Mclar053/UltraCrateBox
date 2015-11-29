@@ -26,7 +26,7 @@ void Level::loadLevel(){
     xCount = 0;
     yCount = 0;
     
-    file.open (ofToDataPath("levels/test.txt"));
+    file.open (ofToDataPath("levels/testLevel.txt"));
     while(!file.eof()) // To get you all the lines.
     {
         getline(file,textLine); // Saves the line in STRING.

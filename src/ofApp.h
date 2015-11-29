@@ -26,6 +26,10 @@ public:
     void dragEvent(ofDragInfo dragInfo);
     void gotMessage(ofMessage msg);
     
+    //Menu functions
+    void drawMenu();
+    void drawOptions();
+    
     //Main control functions
     void entityControls();
     void collisions();
