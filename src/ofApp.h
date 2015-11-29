@@ -40,13 +40,16 @@ public:
     //Resets the level
     void reset();
 
-    //Signature of a test player and an enemy
+    //Signature of the player, enemies and pickup
     Player player;
     vector<Enemy*> enemies;
     Pickup pickup;
+    
+    int score;
 
     //Text for testing purposes
     ofTrueTypeFont text;
+    ofTrueTypeFont scoreText;
 
     //Vector of Tile type objects
     vector<Tile*> platforms;
@@ -56,6 +59,7 @@ public:
 
     //Position offset
     ofVec2f posOffset;
+    ofVec2f enemySpawn;
 
     bool gameOver;
     int state;

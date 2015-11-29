@@ -3,12 +3,15 @@
 //--------------------------------------------------------------
 void ofApp::setup(){
     text.loadFont(OF_TTF_SANS,10); //Loads font to text variable
+    scoreText.loadFont(OF_TTF_SANS,30); //Loads font to text variable
     player = Player(ofVec2f(100,300));
     
     //Creates level from Level object
     createLevel();
     posOffset.set(52,44);
     state = 1;
+    score = 0;
+//    enemies.push_back(new Enemy(enemySpawn));
 }
 
 //--------------------------------------------------------------
@@ -16,7 +19,7 @@ void ofApp::update(){
     switch (state) {
         case 1:
             if(ofGetFrameNum()%90==0){
-                enemies.push_back(new Enemy(ofVec2f(30,300)));
+                enemies.push_back(new Enemy(enemySpawn));
             }
             
             entityControls();
@@ -53,10 +56,14 @@ void ofApp::draw(){
                 
                 for(int i=0; i<enemies.size(); i++){
                     enemies[i]->display();
-                    text.drawString(to_string(i)+": "+to_string(enemies[i]->health), 10, i*10+30);
                 }
                 player.display();
                 glPopMatrix();
+            
+                ofPushStyle();
+                    ofSetColor(0);
+                    scoreText.drawString(to_string(score), ofGetWidth()/2, 30);
+                ofPopStyle();
                 break;
             
             case 2:
@@ -86,7 +93,7 @@ void ofApp::keyPressed(int key){
                 player.right = true;
                 player.moving = true;
             }
-            else if(key == OF_KEY_LEFT){
+            if(key == OF_KEY_LEFT){
                 player.right = false;
                 player.moving = true;
             }
@@ -152,7 +159,6 @@ void ofApp::entityControls(){
     pickup.move();
     
     for(int i=0; i<enemies.size(); i++){
-        enemies[i]->moveX(1);
         enemies[i]->move();
         enemies[i]->checkAlive();
         if(enemies[i]->checkEntity(player)){
@@ -188,6 +194,14 @@ void ofApp::collisions(){
     for(auto _platform: platforms){
         checkCollisions(_platform,&player);
         for(auto _enemy: enemies){
+            if(_platform->detectLeft(_enemy)){
+                _enemy->moveX(-1);
+                _enemy->pos.x-=5;
+            }
+            else if(_platform->detectRight(_enemy)){
+                _enemy->moveX(1);
+                _enemy->pos.x+=5;
+            }
             checkCollisions(_platform,_enemy);
         }
         checkCollisions(_platform, &pickup);
@@ -203,6 +217,7 @@ void ofApp::collisions(){
         player.currentWeapon = newWeapon;
         player.weapons[player.currentWeapon]->resetWeapon();
         player.weapons[player.currentWeapon]->counter=0;
+        score++;
     }
     
     if(pickup.checkWall()){
@@ -262,6 +277,17 @@ void ofApp::checkCollisions(Tile *_platform, Entity *_entity){
 /*--------Builds level from level array--------*/
 
 void ofApp::createLevel(){
+    
+    /*
+     Number meanings
+     0=air
+     1=platform
+     2=fire
+     3=enemy Spawner
+     4=Player spawn
+     */
+
+    
     for(int j=0; j<level.layout[0].size(); j++)
     {
         for(int i=0; i<level.layout.size(); i++)
@@ -270,6 +296,15 @@ void ofApp::createLevel(){
             {
                 case 1:
                     platforms.push_back(new Platform(ofVec2f(i*20,j*20)));
+                    break;
+                case 2:
+                    break;
+                case 3:
+                    enemySpawn.set(i*20, j*20);
+                    break;
+                case 4:
+                    break;
+                default:
                     break;
             }
         }
@@ -290,11 +325,6 @@ void ofApp::damageEnemies(Projectile &_projectile){
 //--------------------------------------------------------------
 //--------------------------------------------------------------
 //--------------------------------------------------------------
-void ofApp::mouseMoved(int x, int y ){
-
-}
-
-//--------------------------------------------------------------
 void ofApp::mouseDragged(int x, int y, int button){
 
 }
@@ -304,32 +334,26 @@ void ofApp::mousePressed(int x, int y, int button){
 
 }
 
-//--------------------------------------------------------------
 void ofApp::mouseReleased(int x, int y, int button){
-
+    
 }
 
-//--------------------------------------------------------------
+void ofApp::mouseMoved(int x, int y ){
+    
+}
+
 void ofApp::mouseEntered(int x, int y){
-
+    
 }
-
-//--------------------------------------------------------------
 void ofApp::mouseExited(int x, int y){
-
+    
 }
-
-//--------------------------------------------------------------
 void ofApp::windowResized(int w, int h){
-
+    
 }
-
-//--------------------------------------------------------------
+void ofApp::dragEvent(ofDragInfo dragInfo){
+    
+}
 void ofApp::gotMessage(ofMessage msg){
-
-}
-
-//--------------------------------------------------------------
-void ofApp::dragEvent(ofDragInfo dragInfo){ 
-
+    
 }

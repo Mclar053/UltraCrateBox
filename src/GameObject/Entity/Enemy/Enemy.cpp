@@ -13,6 +13,7 @@ Enemy::Enemy():health(10),dead(false){
     getSize();
     moving=true;
     MAX_VEL.set(2, 10);
+    moveX(1);
 }
 
 Enemy::Enemy(ofVec2f _pos):Entity(_pos),health(10),dead(false){
@@ -20,10 +21,15 @@ Enemy::Enemy(ofVec2f _pos):Entity(_pos),health(10),dead(false){
     getSize();
     moving=true;
     MAX_VEL.set(2, 10);
+    moveX(1);
 }
 
 void Enemy::checkAlive(){
     if(health<=0){
         dead=true;
     }
+}
+
+void Enemy::changeDirection(){
+    moveX(-direction);
 }

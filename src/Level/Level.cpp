@@ -16,23 +16,7 @@ Level::Level(){
     }
     
     loadLevel();
-    
-//    for (int i=0; i<layout.size(); i++) {
-//        for (int j=0; j<layout[i].size(); j++) {
-//            if (j==32) {
-//                 layout[i][j]=1;
-//            }
-//        }
-//    }
 }
-   //Level dimensions = [33][46] at platform size = 20px
-    /*
-     0=air
-     1=platform
-     2=fire
-     3=enemy Spawner
-     4=Player spawn
-    */
 
 void Level::loadLevel(){
     ifstream file;
