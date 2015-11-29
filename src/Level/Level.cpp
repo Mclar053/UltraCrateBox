@@ -15,13 +15,15 @@ Level::Level(){
         i.resize(33);
     }
     
-    for (int i=0; i<layout.size(); i++) {
-        for (int j=0; j<layout[i].size(); j++) {
-            if (j==32) {
-                 layout[i][j]=1;
-            }
-        }
-    }
+    loadLevel();
+    
+//    for (int i=0; i<layout.size(); i++) {
+//        for (int j=0; j<layout[i].size(); j++) {
+//            if (j==32) {
+//                 layout[i][j]=1;
+//            }
+//        }
+//    }
 }
    //Level dimensions = [33][46] at platform size = 20px
     /*
@@ -32,17 +34,32 @@ Level::Level(){
      4=Player spawn
     */
 
-//void Level::loadLevel(){
-//    ifstream fin; //declare a file stream
-//    fin.open( ofToDataPath("../levelFile/level.txt").c_str() ); //open your text file
-//    
-//    vector<string> data; //declare a vector of strings to store data
-//    
-//    while(fin!=NULL) //as long as theres still text to be read
-//    {
-//        string str; //declare a string for storage
-//        getline(fin, str); //get a line from the file, put it in the string
-//        data.push_back(str); //push the string onto a vector of strings
-//    }
-//}
+void Level::loadLevel(){
+    ifstream file;
+    string sub, textLine;
+    int xCount;
+    int yCount;
+    xCount = 0;
+    yCount = 0;
+    
+    file.open (ofToDataPath("levels/test.txt"));
+    while(!file.eof()) // To get you all the lines.
+    {
+        getline(file,textLine); // Saves the line in STRING.
+        sub = "";
+        for(int i=0; i<textLine.length(); i++){
+            if(textLine.at(i)==','){
+                sub = "";
+            }
+            else{
+                sub+=textLine.at(i);
+                layout[xCount][yCount]=(stoi(sub));
+                xCount++;
+            }
+        }
+        yCount++;
+        xCount=0;
+    }
+    file.close();
+}
 

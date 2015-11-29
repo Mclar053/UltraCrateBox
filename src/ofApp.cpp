@@ -156,7 +156,7 @@ void ofApp::entityControls(){
         enemies[i]->move();
         enemies[i]->checkAlive();
         if(enemies[i]->checkEntity(player)){
-            gameOver=true;
+//            gameOver=true;
         }
         for(int j=0; j<player.weapons.size(); j++){
             for(int k=0; k<player.weapons[j]->ammo.size(); k++){
@@ -195,7 +195,14 @@ void ofApp::collisions(){
     
     if(player.checkEntity(pickup)){
         pickup.pos = ofVec2f(rand()%ofGetWidth(),rand()%ofGetHeight());
-        player.currentWeapon = floor(rand()%player.weapons.size());
+        
+        int newWeapon = floor(rand()%player.weapons.size());
+        while(player.currentWeapon == newWeapon){
+            newWeapon = floor(rand()%player.weapons.size());
+        }
+        player.currentWeapon = newWeapon;
+        player.weapons[player.currentWeapon]->resetWeapon();
+        player.weapons[player.currentWeapon]->counter=0;
     }
     
     if(pickup.checkWall()){
@@ -214,21 +221,21 @@ void ofApp::checkCollisions(Tile *_platform, Entity *_entity){
     //Checks around the entity and only executes collision checks if entity is within 30 pixels in any direction of a platform
     if(abs(_platform->pos.x-_entity->pos.x)<30 && abs(_platform->pos.y-_entity->pos.y)<30){
     
+        //Detect if left of tile is colliding with the entity
+        if(_platform->detectLeft(_entity)){
+            _entity->pos.x=_platform->pos.x-_platform->size.x/2-_entity->size.x/2-3; //Changes position of entity to side of tile thus not making the entity clip through the tile
+        }
+        
         //Checks if entity is jumping into a tile from below
-        if(_platform->detectBottom(_entity)){
-            _entity->pos.y=_platform->pos.y+_platform->size.y/2+_entity->size.y/2; //Changes position of entity so it is below the tile and cannot clip through
+        else if(_platform->detectBottom(_entity)){
+            _entity->pos.y=_platform->pos.y+_platform->size.y/2+_entity->size.y/2+1; //Changes position of entity so it is below the tile and cannot clip through
             _entity->vel.y=0;
             _entity->acc.y=0;
         }
         
-        //Detect if left of tile is colliding with the entity
-        else if(_platform->detectLeft(_entity)){
-            _entity->pos.x=_platform->pos.x-_platform->size.x/2-_entity->size.x/2; //Changes position of entity to side of tile thus not making the entity clip through the tile
-        }
-        
         //Same but with the right of the tile
         else if(_platform->detectRight(_entity)){
-            _entity->pos.x=_platform->pos.x+_platform->size.x/2+_entity->size.x/2; //Changes position of entity to side of tile thus not making the entity clip through the tile
+            _entity->pos.x=_platform->pos.x+_platform->size.x/2+_entity->size.x/2+3; //Changes position of entity to side of tile thus not making the entity clip through the tile
         }
         
         //Detects the top of the tile
