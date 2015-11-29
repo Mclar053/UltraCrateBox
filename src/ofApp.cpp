@@ -17,7 +17,8 @@ void ofApp::update(){
     switch (state) {
         case 1:
             if(ofGetFrameNum()%90==0){
-                enemies.push_back(new Enemy(enemySpawn));
+                enemies.push_back(new Drone(enemySpawn));
+                enemies.push_back(new Tank(enemySpawn));
             }
             
             entityControls();
@@ -35,6 +36,7 @@ void ofApp::update(){
 
 //--------------------------------------------------------------
 void ofApp::draw(){
+    ofBackground(255);
     switch(state){
             case 1:
                 glPushMatrix();
@@ -190,19 +192,32 @@ void ofApp::collisions(){
     
     //For each platform checks if the player is colliding with an entity and changes the onPlatform to true accordingly
     for(auto _platform: platforms){
-        checkCollisions(_platform,&player);
-        for(auto _enemy: enemies){
-            if(_platform->detectLeft(_enemy)){
-                _enemy->moveX(-1);
-                _enemy->pos.x-=5;
-            }
-            else if(_platform->detectRight(_enemy)){
-                _enemy->moveX(1);
-                _enemy->pos.x+=5;
-            }
-            checkCollisions(_platform,_enemy);
-        }
         checkCollisions(_platform, &pickup);
+        if(Platform* derived = dynamic_cast<Platform*>(_platform)){
+            checkCollisions(_platform,&player);
+            for(auto _enemy: enemies){
+                if(_platform->detectLeft(_enemy)){
+                    _enemy->moveX(-1);
+                    _enemy->pos.x-=5;
+                }
+                else if(_platform->detectRight(_enemy)){
+                    _enemy->moveX(1);
+                    _enemy->pos.x+=5;
+                }
+                checkCollisions(_platform,_enemy);
+            }
+        }
+        if(Fire* derived = dynamic_cast<Fire*>(_platform)){
+            for(auto _enemy: enemies){
+                if(_platform->detectBottom(_enemy)){
+                    _enemy->enrage();
+                    _enemy->pos.set(enemySpawn);
+                }
+            }
+            if(_platform->detectBottom(&player)){
+                gameOver=true;
+            }
+        }
     }
     
     if(player.checkEntity(pickup)){
@@ -302,6 +317,7 @@ void ofApp::createLevel(){
                     enemySpawn.set(i*20, j*20);
                     break;
                 case 4:
+                    platforms.push_back(new Fire(ofVec2f(i*20,j*20)));
                     break;
                 default:
                     break;

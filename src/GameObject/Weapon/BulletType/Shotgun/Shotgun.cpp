@@ -8,7 +8,7 @@
 
 #include "Shotgun.h"
 
-Shotgun::Shotgun():BulletType("Shotgun", 5, 60, true){
+Shotgun::Shotgun():BulletType("Shotgun", 2, 60, true){
     gameSprite = Sprite("sprites/weapons/pistol");
     getSize();
 }

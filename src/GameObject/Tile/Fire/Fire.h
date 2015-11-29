@@ -19,6 +19,8 @@ class Fire: public Tile{
 public:
     Fire();
     Fire(ofVec2f _pos);
+    
+    void display();
 };
 
 #endif /* defined(__UltraCrateBox__Fire__) */

@@ -25,10 +25,13 @@ public:
     //Methods
     void changeDirection();
     void checkAlive();
+    void enrage();
     
     //Properties
     int health;
     bool dead;
+    bool fallen; //Checks if enemy has fallen in fire
+    string type;
 };
 
 #endif /* defined(__UltraCrateBox__Enemy__) */

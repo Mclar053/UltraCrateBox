@@ -32,6 +32,7 @@ void Sprite::createSprite(string _folderPath){
     //Temporary image variable
     ofImage img;
     
+    sprite.clear();
     //Load all images into the sprite array
     for(int i = 0; i < dir.numFiles(); i++){
         img.loadImage(dir.getPath(i));

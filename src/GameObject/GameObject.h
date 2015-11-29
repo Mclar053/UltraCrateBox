@@ -19,7 +19,7 @@ public:
     GameObject();
     GameObject(ofVec2f _pos);
     //Methods
-    void display();
+    virtual void display();
     void getSize();
     
     //Properties

@@ -2,9 +2,11 @@
 
 #include "ofMain.h"
 #include "GameObject/Entity/Player/Player.h"
-#include "GameObject/Entity/Enemy/Enemy.h"
+#include "GameObject/Entity/Enemy/Drone/Drone.h"
+#include "GameObject/Entity/Enemy/Tank/Tank.h"
 #include "GameObject/Entity/Pickup/Pickup.h"
 #include "GameObject/Tile/Platform/Platform.h"
+#include "GameObject/Tile/Fire/Fire.h"
 #include "Level/Level.h"
 
 class ofApp : public ofBaseApp{

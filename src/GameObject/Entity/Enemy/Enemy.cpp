@@ -9,18 +9,12 @@
 #include "Enemy.h"
 
 Enemy::Enemy():health(10),dead(false){
-    gameSprite = Sprite(5, 1, 6, 0, "sprites/entities/drone/");
-    getSize();
     moving=true;
-    MAX_VEL.set(2, 10);
     moveX(1);
 }
 
-Enemy::Enemy(ofVec2f _pos):Entity(_pos),health(10),dead(false){
-    gameSprite = Sprite(5, 1, 6, 0, "sprites/entities/drone/");
-    getSize();
+Enemy::Enemy(ofVec2f _pos):Entity(_pos),dead(false),fallen(false){
     moving=true;
-    MAX_VEL.set(2, 10);
     moveX(1);
 }
 
@@ -32,4 +26,12 @@ void Enemy::checkAlive(){
 
 void Enemy::changeDirection(){
     moveX(-direction);
+}
+
+void Enemy::enrage(){
+    if(!fallen){
+        gameSprite.createSprite("sprites/entities/"+type+"/enrage/");
+        MAX_VEL.x*=2;
+        fallen = true;
+    }
 }

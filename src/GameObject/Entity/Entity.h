@@ -10,7 +10,6 @@
 #define __UltraCrateBox__Entity__
 
 #include "../GameObject.h"
-//#include "../Weapon/Pistol/Pistol.h"
 #include <stdio.h>
 
 //Entity inherits GameObject
