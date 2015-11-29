@@ -3,6 +3,7 @@
 #include "ofMain.h"
 #include "GameObject/Entity/Player/Player.h"
 #include "GameObject/Entity/Enemy/Enemy.h"
+#include "GameObject/Entity/Pickup/Pickup.h"
 #include "GameObject/Tile/Platform/Platform.h"
 #include "Level/Level.h"
 
@@ -42,6 +43,7 @@ public:
     //Signature of a test player and an enemy
     Player player;
     vector<Enemy*> enemies;
+    Pickup pickup;
 
     //Text for testing purposes
     ofTrueTypeFont text;

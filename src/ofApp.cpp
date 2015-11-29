@@ -42,6 +42,9 @@ void ofApp::draw(){
                 for(auto _platform: platforms){
                     _platform->display();
                 }
+            
+                pickup.display();
+            
                 for(int i=0; i<player.weapons.size(); i++){
                     for(auto &_projectile: player.weapons[i]->ammo){
                         _projectile.display();
@@ -126,6 +129,8 @@ void ofApp::keyReleased(int key){
     }
 }
 
+/*--------Entity Controls--------*/
+
 void ofApp::entityControls(){
     //Player controls
     if(player.moving){
@@ -143,6 +148,8 @@ void ofApp::entityControls(){
     if(up){
         player.jump();
     }
+    
+    pickup.move();
     
     for(int i=0; i<enemies.size(); i++){
         enemies[i]->moveX(1);
@@ -167,12 +174,15 @@ void ofApp::entityControls(){
     player.weapons[player.currentWeapon]->fireWeapon(player);
 }
 
+/*--------Entity Collisions--------*/
+
 void ofApp::collisions(){
     //Tile collision routine
     for(auto &_enemy: enemies){
         _enemy->onPlatform = false;//Sets entities 'onPlatform' bool to false
     }
     player.onPlatform=false;
+    pickup.onPlatform=false;
     
     //For each platform checks if the player is colliding with an entity and changes the onPlatform to true accordingly
     for(auto _platform: platforms){
@@ -180,6 +190,16 @@ void ofApp::collisions(){
         for(auto _enemy: enemies){
             checkCollisions(_platform,_enemy);
         }
+        checkCollisions(_platform, &pickup);
+    }
+    
+    if(player.checkEntity(pickup)){
+        pickup.pos = ofVec2f(rand()%ofGetWidth(),rand()%ofGetHeight());
+        player.currentWeapon = floor(rand()%player.weapons.size());
+    }
+    
+    if(pickup.checkWall()){
+        pickup.pos = ofVec2f(rand()%ofGetWidth(),rand()%ofGetHeight());
     }
     
     for(int i=0; i<player.weapons.size(); i++){
@@ -187,6 +207,7 @@ void ofApp::collisions(){
     }
 }
 
+/*--------Checks for Tile-Entity collisions--------*/
 
 void ofApp::checkCollisions(Tile *_platform, Entity *_entity){
     
@@ -231,6 +252,8 @@ void ofApp::checkCollisions(Tile *_platform, Entity *_entity){
     }
 }
 
+/*--------Builds level from level array--------*/
+
 void ofApp::createLevel(){
     for(int j=0; j<level.layout[0].size(); j++)
     {
@@ -245,6 +268,8 @@ void ofApp::createLevel(){
         }
     }
 }
+
+/*--------Damages enemies within radius of projectile--------*/
 
 void ofApp::damageEnemies(Projectile &_projectile){
     for(auto &_enemy: enemies){
