@@ -28,6 +28,7 @@
 		6E92F4891C050805000104FB /* Laser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6E92F4871C050805000104FB /* Laser.cpp */; };
 		6EAA7F2E1C0B8866000A870B /* Drone.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6EAA7F2C1C0B8866000A870B /* Drone.cpp */; };
 		6EAA7F311C0B887A000A870B /* Tank.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6EAA7F2F1C0B887A000A870B /* Tank.cpp */; };
+		6EAA7F351C0CB90D000A870B /* Button.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6EAA7F331C0CB90D000A870B /* Button.cpp */; };
 		6ECCBA9A1C08868A0012AA69 /* MachineGun.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6ECCBA981C08868A0012AA69 /* MachineGun.cpp */; };
 		6EE40EF01BF8BB6700DE5FD7 /* Level.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6EE40EEE1BF8BB6700DE5FD7 /* Level.cpp */; };
 		E4328149138ABC9F0047C5CB /* openFrameworksDebug.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E4328148138ABC890047C5CB /* openFrameworksDebug.a */; };
@@ -107,6 +108,8 @@
 		6EAA7F2D1C0B8866000A870B /* Drone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Drone.h; path = GameObject/Entity/Enemy/Drone/Drone.h; sourceTree = "<group>"; };
 		6EAA7F2F1C0B887A000A870B /* Tank.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Tank.cpp; path = GameObject/Entity/Enemy/Tank/Tank.cpp; sourceTree = "<group>"; };
 		6EAA7F301C0B887A000A870B /* Tank.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Tank.h; path = GameObject/Entity/Enemy/Tank/Tank.h; sourceTree = "<group>"; };
+		6EAA7F331C0CB90D000A870B /* Button.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Button.cpp; path = Button/Button.cpp; sourceTree = "<group>"; };
+		6EAA7F341C0CB90D000A870B /* Button.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Button.h; path = Button/Button.h; sourceTree = "<group>"; };
 		6ECCBA981C08868A0012AA69 /* MachineGun.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = MachineGun.cpp; path = GameObject/Weapon/BulletType/MachineGun/MachineGun.cpp; sourceTree = "<group>"; };
 		6ECCBA991C08868A0012AA69 /* MachineGun.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MachineGun.h; path = GameObject/Weapon/BulletType/MachineGun/MachineGun.h; sourceTree = "<group>"; };
 		6EE40EEE1BF8BB6700DE5FD7 /* Level.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Level.cpp; path = Level/Level.cpp; sourceTree = "<group>"; };
@@ -303,6 +306,15 @@
 			name = Tank;
 			sourceTree = "<group>";
 		};
+		6EAA7F321C0CB900000A870B /* Button */ = {
+			isa = PBXGroup;
+			children = (
+				6EAA7F341C0CB90D000A870B /* Button.h */,
+				6EAA7F331C0CB90D000A870B /* Button.cpp */,
+			);
+			name = Button;
+			sourceTree = "<group>";
+		};
 		6ECCBA971C08866B0012AA69 /* MachineGun */ = {
 			isa = PBXGroup;
 			children = (
@@ -406,6 +418,7 @@
 		E4B69E1C0A3A1BDC003C02F2 /* src */ = {
 			isa = PBXGroup;
 			children = (
+				6EAA7F321C0CB900000A870B /* Button */,
 				6EE40EED1BF8BB4000DE5FD7 /* Level */,
 				6EA0AD231BE96C1D005CF401 /* Sprite */,
 				6ED8D1691BE9291F007C4A23 /* GameObject */,
@@ -533,6 +546,7 @@
 				6E92F4831C0507D7000104FB /* Bullet.cpp in Sources */,
 				6E3D376D1BEBA67600A6F561 /* Platform.cpp in Sources */,
 				6E3D37711BED7CF800A6F561 /* Fire.cpp in Sources */,
+				6EAA7F351C0CB90D000A870B /* Button.cpp in Sources */,
 				6E3D37661BEB81AA00A6F561 /* Tile.cpp in Sources */,
 				6E92F4861C0507F2000104FB /* Explosive.cpp in Sources */,
 				6ECCBA9A1C08868A0012AA69 /* MachineGun.cpp in Sources */,

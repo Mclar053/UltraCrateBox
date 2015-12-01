@@ -8,7 +8,7 @@
 
 #include "MachineGun.h"
 
-MachineGun::MachineGun():BulletType("Machine Gun", 3, 5, true){
+MachineGun::MachineGun():BulletType("Machine Gun", 3, 4, true){
     gameSprite = Sprite("sprites/weapons/pistol");
     getSize();
 }

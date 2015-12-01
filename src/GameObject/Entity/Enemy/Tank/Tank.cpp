@@ -11,7 +11,7 @@
 Tank::Tank(ofVec2f _pos):Enemy(_pos){
     gameSprite = Sprite(5, 1, 6, 0, "sprites/entities/tank/");
     getSize();
-    MAX_VEL.set(2, 10);
+    MAX_VEL.set(1, 10);
     health=10;
     type = "tank";
 }

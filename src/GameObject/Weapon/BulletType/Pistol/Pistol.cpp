@@ -8,7 +8,7 @@
 
 #include "Pistol.h"
 
-Pistol::Pistol():BulletType("Pistol", 1, -1, false){
+Pistol::Pistol():BulletType("Pistol", 2, -1, false){
     gameSprite = Sprite("sprites/weapons/pistol");
     getSize();
 }

@@ -6,21 +6,19 @@ void ofApp::setup(){
     scoreText.loadFont(OF_TTF_SANS,30); //Loads font to text variable
     
     //Creates level from Level object
-    createLevel();
+    reset();
     posOffset.set(52,44);
-    state = 1;
-    score = 0;
 }
 
 //--------------------------------------------------------------
 void ofApp::update(){
     switch (state) {
         case 1:
-            if(ofGetFrameNum()%90==0){
+            if(ofGetFrameNum()%150==0){
                 enemies.push_back(new Drone(enemySpawn));
                 enemies.push_back(new Tank(enemySpawn));
             }
-            
+
             entityControls();
             collisions();
             player.move(); //Same as previous comment but with player
@@ -104,9 +102,14 @@ void ofApp::keyPressed(int key){
             if(key=='x'){
                 player.weapons[player.currentWeapon]->checkHoldFire(player);
             }
+            if(key=='r'){
+                reset();
+            }
             break;
         case 2:
-            state=1;
+            if(key=='r'){
+                reset();
+            }
             break;
         default:
             break;
@@ -136,6 +139,12 @@ void ofApp::keyReleased(int key){
     }
 }
 
+void ofApp::drawMenu(){
+    ofPushMatrix();
+        
+    ofPopMatrix();
+}
+
 /*--------Entity Controls--------*/
 
 void ofApp::entityControls(){
@@ -162,7 +171,7 @@ void ofApp::entityControls(){
         enemies[i]->move();
         enemies[i]->checkAlive();
         if(enemies[i]->checkEntity(player)){
-//            gameOver=true;
+            gameOver=true;
         }
         for(int j=0; j<player.weapons.size(); j++){
             for(int k=0; k<player.weapons[j]->ammo.size(); k++){
@@ -192,20 +201,22 @@ void ofApp::collisions(){
     
     //For each platform checks if the player is colliding with an entity and changes the onPlatform to true accordingly
     for(auto _platform: platforms){
-        checkCollisions(_platform, &pickup);
         if(Platform* derived = dynamic_cast<Platform*>(_platform)){
             checkCollisions(_platform,&player);
             for(auto _enemy: enemies){
                 if(_platform->detectLeft(_enemy)){
+                    _enemy->vel.x=-0.1;
                     _enemy->moveX(-1);
-                    _enemy->pos.x-=5;
+                    _enemy->pos.x-=20;
                 }
                 else if(_platform->detectRight(_enemy)){
+                    _enemy->vel.x=0.1;
                     _enemy->moveX(1);
-                    _enemy->pos.x+=5;
+                    _enemy->pos.x+=20;
                 }
                 checkCollisions(_platform,_enemy);
             }
+            checkCollisions(_platform, &pickup);
         }
         if(Fire* derived = dynamic_cast<Fire*>(_platform)){
             for(auto _enemy: enemies){
@@ -334,6 +345,20 @@ void ofApp::damageEnemies(Projectile &_projectile){
             _enemy->health-=_projectile.damage;
         }
     }
+}
+
+void ofApp::reset(){
+    state = 1;
+    score = 0;
+    createLevel();
+    player.currentWeapon = 0;
+    gameOver = false;
+    pickup = Pickup();
+    for(int i=enemies.size()-1; i>=0; i--){
+        delete enemies[i];
+        enemies.erase(enemies.begin()+i);
+    }
+    up = false;
 }
 
 //--------------------------------------------------------------

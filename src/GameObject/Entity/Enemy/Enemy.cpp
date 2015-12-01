@@ -31,7 +31,7 @@ void Enemy::changeDirection(){
 void Enemy::enrage(){
     if(!fallen){
         gameSprite.createSprite("sprites/entities/"+type+"/enrage/");
-        MAX_VEL.x*=2;
+        MAX_VEL.x*=1.5;
         fallen = true;
     }
 }
