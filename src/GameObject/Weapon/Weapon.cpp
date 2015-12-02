@@ -20,7 +20,6 @@ void Weapon::checkBullets(){
     for (int i=0; i<ammo.size(); i++){
         ammo[i].move();
         if(ammo[i].checkWall()){
-//            delete ammo[i];
             ammo.erase(ammo.begin()+i);
         }
     }
@@ -72,5 +71,4 @@ void Weapon::resetWeapon()//Resets the weapon so that it is not firing
 
 void Weapon::fire(Entity &_entity){
     cout<<"pew"<<endl;
-//    ammo.push_back(new Projectile(_entity.pos,_entity.direction, checkWeaponType(),damage));
 }

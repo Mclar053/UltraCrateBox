@@ -14,7 +14,7 @@ void ofApp::setup(){
     buttons = {
         {
             Button(ofVec2f(ofGetWidth()/2-100,270),ofVec2f(200,60),"Play"),
-            Button(ofVec2f(ofGetWidth()/2-100,350),ofVec2f(200,60),"Options"),
+            Button(ofVec2f(ofGetWidth()/2-100,350),ofVec2f(200,60),"Controls"),
             Button(ofVec2f(ofGetWidth()/2-100,430),ofVec2f(200,60),"Exit")
         },
         {
@@ -240,14 +240,16 @@ void ofApp::drawOptions(){
         scoreText.drawString("Rules", 500, 140);
         optionsText.drawString("-Collect crates to gain score", 500, 175);
         optionsText.drawString("-Hitting enemies and fire will cause a Game Over", 500, 200);
-        optionsText.drawString("-Collecting crates randomises your weapon", 500, 225);
+        optionsText.drawString("-Collecting crates changes your weapon", 500, 225);
         optionsText.drawString("-Enemies will become enraged when they touch the fire.", 500, 250);
     
         scoreText.drawString("Controls", 500, 400);
-        optionsText.drawString("Up or 'z' = Jump", 500, 435);
+        optionsText.drawString("Up Arrow or 'z' = Jump", 500, 435);
         optionsText.drawString("Left Arrow = Move Left", 500, 460);
         optionsText.drawString("Right Arrow = Move Right", 500, 485);
         optionsText.drawString("'x' = Fire Weapon", 500, 510);
+        optionsText.drawString("'p' = Pause", 500, 535);
+        optionsText.drawString("'r' = Reset", 500, 560);
         ofPopStyle();
     ofPopMatrix();
 }
