@@ -2,6 +2,10 @@
 
 //--------------------------------------------------------------
 void ofApp::setup(){
+    music.load("music/music.mp3");
+    music.setLoop(true);
+    music.play();
+    
     optionsText.loadFont(OF_TTF_SANS,15); //Loads font to text variable
     scoreText.loadFont(OF_TTF_SANS,30); //Loads font to text variable
     font = new ofTrueTypeFont();
@@ -14,7 +18,8 @@ void ofApp::setup(){
             Button(ofVec2f(ofGetWidth()/2-100,430),ofVec2f(200,60),"Exit")
         },
         {
-            Button(ofVec2f(ofGetWidth()/2-100,ofGetHeight()/2-30),ofVec2f(200,60),"Main Menu")
+            Button(ofVec2f(ofGetWidth()/2-100,ofGetHeight()/2-30),ofVec2f(200,60),"Main Menu"),
+            Button(ofVec2f(ofGetWidth()/2-100,ofGetHeight()/2-130),ofVec2f(200,60),"PAUSED",ofColor(235, 71, 71))
         },
         {
             Button(ofVec2f(ofGetWidth()/2-100,ofGetHeight()/2-30),ofVec2f(200,60),"Main Menu"),
@@ -39,8 +44,31 @@ void ofApp::update(){
         case 1:
             if(!pause){
                 if(ofGetFrameNum()%150==0){
-                    enemies.push_back(new Drone(enemySpawn));
-                    enemies.push_back(new Tank(enemySpawn));
+                    int randomNo = floor(rand()%7);
+                    ofVec2f randomPos;
+                    switch (randomNo) {
+                        case 1:
+                            for(int i=0; i<3; i++)
+                                randomPos = ofVec2f(rand()%20,0);
+                                enemies.push_back(new Drone(enemySpawn+randomPos));
+                            break;
+
+                        case 2:
+                            enemies.push_back(new Drone(enemySpawn));
+                            enemies.push_back(new Tank(enemySpawn));
+                            break;
+                        case 3:
+                            enemies.push_back(new Tank(enemySpawn));
+                            break;
+                        case 4:
+                            for(int i=0; i<2; i++)
+                                randomPos = ofVec2f(rand()%20,0);
+                                enemies.push_back(new Tank(enemySpawn+randomPos));
+                            break;
+                        default:
+                            enemies.push_back(new Drone(enemySpawn));
+                            break;
+                    }
                 }
                 
                 entityControls();
@@ -50,8 +78,6 @@ void ofApp::update(){
                     state=2;
                 }
             }
-            break;
-        case 2:
             break;
         default:
             break;
@@ -108,6 +134,10 @@ void ofApp::draw(){
             drawOptions();
             break;
         default:
+            ofPushStyle();
+            ofSetColor(0);
+            scoreText.drawString("Ultra Crate Box", ofGetWidth()/2-130, 150);
+            ofPopStyle();
             drawButtons(0);
             break;
     }

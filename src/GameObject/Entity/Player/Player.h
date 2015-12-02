@@ -19,6 +19,7 @@
 
 //Including explosive type weapons
 #include "../../Weapon/ExplosiveType/Rocket/Rocket.h"
+#include "../../Weapon/ExplosiveType/ChargeRocket/ChargeRocket.h"
 #include <stdio.h>
 
 //Player inherits Entity

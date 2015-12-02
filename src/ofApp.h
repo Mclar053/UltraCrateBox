@@ -78,4 +78,6 @@ public:
     bool pause;
     int state;
     bool up;
+    
+    ofSoundPlayer music;
 };

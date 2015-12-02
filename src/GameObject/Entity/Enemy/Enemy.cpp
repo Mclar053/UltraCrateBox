@@ -9,13 +9,15 @@
 #include "Enemy.h"
 
 Enemy::Enemy():health(10),dead(false){
-    moving=true;
-    moveX(1);
 }
 
 Enemy::Enemy(ofVec2f _pos):Entity(_pos),dead(false),fallen(false){
     moving=true;
-    moveX(1);
+    int randomMove = floor(rand()%2);
+    if(randomMove==0){
+        randomMove=-1;
+    }
+    moveX(randomMove);
 }
 
 void Enemy::checkAlive(){

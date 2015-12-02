@@ -16,10 +16,9 @@ class Button{
 public:
     Button(){};
     Button(ofVec2f _pos, ofVec2f _size, string _text);
+    Button(ofVec2f _pos, ofVec2f _size, string _text, ofColor _col);
     
     void display(ofTrueTypeFont *_font);
-    void setText(string _text);
-    void setFont(int _fontSize);
     
     bool clicked(float _mouseX, float _mouseY);
     
@@ -27,6 +26,7 @@ public:
     ofVec2f size;
     int fontSize;
     string text;
+    ofColor colour;
 };
 
 #endif /* defined(__UltraCrateBox__Button__) */

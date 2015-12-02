@@ -9,6 +9,10 @@
 #include "Button.h"
 
 Button::Button(ofVec2f _pos, ofVec2f _size, string _text):pos(_pos),size(_size),text(_text){
+    colour.set(198, 83, 83);
+}
+
+Button::Button(ofVec2f _pos, ofVec2f _size, string _text, ofColor _col):pos(_pos),size(_size),text(_text),colour(_col){
 }
 
 void Button::display(ofTrueTypeFont *_font){
@@ -17,7 +21,7 @@ void Button::display(ofTrueTypeFont *_font){
     
     ofPushStyle();
     ofFill();
-    ofSetColor(255,0,0);
+    ofSetColor(colour);
     ofDrawRectangle(0,0, size.x, size.y);
     
     ofNoFill();
@@ -34,14 +38,6 @@ void Button::display(ofTrueTypeFont *_font){
         ofPopMatrix();
     
     ofPopMatrix();
-}
-
-void Button::setText(string _text){
-    text = _text;
-}
-
-void Button::setFont(int _fontSize){
-    
 }
 
 bool Button::clicked(float _mouseX, float _mouseY){
