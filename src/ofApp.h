@@ -8,6 +8,7 @@
 #include "GameObject/Tile/Platform/Platform.h"
 #include "GameObject/Tile/Fire/Fire.h"
 #include "Level/Level.h"
+#include "Button/Button.h"
 
 class ofApp : public ofBaseApp{
 
@@ -29,8 +30,10 @@ public:
     void gotMessage(ofMessage msg);
     
     //Menu functions
-    void drawMenu();
+    void drawButtons(int _buttonPos);
     void drawOptions();
+    
+    ofImage getImage(string filepath);
     
     //Main control functions
     void entityControls();
@@ -52,10 +55,14 @@ public:
     Pickup pickup;
     
     int score;
-
+    
     //Text for testing purposes
-    ofTrueTypeFont text;
+    ofTrueTypeFont optionsText;
     ofTrueTypeFont scoreText;
+    ofTrueTypeFont *font;
+
+    //Buttons for UI
+    vector<vector<Button>> buttons;
 
     //Vector of Tile type objects
     vector<Tile*> platforms;
@@ -68,6 +75,7 @@ public:
     ofVec2f enemySpawn;
 
     bool gameOver;
+    bool pause;
     int state;
     bool up;
 };

@@ -14,18 +14,18 @@
 
 class Button{
 public:
-    Button(ofVec2f _pos, ofVec2f _size);
-    Button(ofVec2f _pos, ofVec2f _size, string _text, int _fontSize);
+    Button(){};
+    Button(ofVec2f _pos, ofVec2f _size, string _text);
     
-    void display();
+    void display(ofTrueTypeFont *_font);
     void setText(string _text);
-    void setFont(int _size);
+    void setFont(int _fontSize);
     
     bool clicked(float _mouseX, float _mouseY);
     
     ofVec2f pos;
     ofVec2f size;
-    ofTrueTypeFont font;
+    int fontSize;
     string text;
 };
 

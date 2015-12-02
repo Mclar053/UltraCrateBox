@@ -8,20 +8,31 @@
 
 #include "Button.h"
 
-Button::Button(ofVec2f _pos, ofVec2f _size):pos(_pos),size(_size){
-    setFont(20);
-    setText("");
+Button::Button(ofVec2f _pos, ofVec2f _size, string _text):pos(_pos),size(_size),text(_text){
 }
 
-Button::Button(ofVec2f _pos, ofVec2f _size, string _text, int _fontSize):pos(_pos),size(_size){
-    setFont(_fontSize);
-    setText(_text);
-}
-
-void Button::display(){
+void Button::display(ofTrueTypeFont *_font){
     ofPushMatrix();
-        ofDrawRectangle(pos.x, pos.y, size.x, size.y);
-        font.drawString(text, pos.x, pos.y);
+    ofTranslate(pos.x,pos.y);
+    
+    ofPushStyle();
+    ofFill();
+    ofSetColor(255,0,0);
+    ofDrawRectangle(0,0, size.x, size.y);
+    
+    ofNoFill();
+    ofSetColor(0);
+        ofDrawRectangle(0,0, size.x, size.y);
+    ofPopStyle();
+    
+        ofPushMatrix();
+    ofTranslate(_font->getSize(),2*_font->getSize());
+        ofPushStyle();
+            ofSetColor(0);
+            _font->drawString(text,0,0);
+        ofPopStyle();
+        ofPopMatrix();
+    
     ofPopMatrix();
 }
 
@@ -29,8 +40,8 @@ void Button::setText(string _text){
     text = _text;
 }
 
-void Button::setFont(int _size){
-    font.load(OF_TTF_SANS, _size);
+void Button::setFont(int _fontSize){
+    
 }
 
 bool Button::clicked(float _mouseX, float _mouseY){
