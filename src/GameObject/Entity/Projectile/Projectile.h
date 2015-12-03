@@ -24,6 +24,7 @@ public:
     
     int damage; //Carries damage from weapon
     int explosionRadius; //Damages enemies within explosion radius
+    int sinCount; //Counts frames for a smooth sine wave
 };
 
 #endif /* defined(__UltraCrateBox__Projectile__) */

@@ -30,6 +30,7 @@
 		6EAA7F311C0B887A000A870B /* Tank.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6EAA7F2F1C0B887A000A870B /* Tank.cpp */; };
 		6EAA7F351C0CB90D000A870B /* Button.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6EAA7F331C0CB90D000A870B /* Button.cpp */; };
 		6EAA7F3E1C0F3097000A870B /* ChargeRocket.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6EAA7F3C1C0F3097000A870B /* ChargeRocket.cpp */; };
+		6EAA7F421C10FB39000A870B /* SineGun.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6EAA7F401C10FB39000A870B /* SineGun.cpp */; };
 		6ECCBA9A1C08868A0012AA69 /* MachineGun.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6ECCBA981C08868A0012AA69 /* MachineGun.cpp */; };
 		6EE40EF01BF8BB6700DE5FD7 /* Level.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6EE40EEE1BF8BB6700DE5FD7 /* Level.cpp */; };
 		E4328149138ABC9F0047C5CB /* openFrameworksDebug.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E4328148138ABC890047C5CB /* openFrameworksDebug.a */; };
@@ -113,6 +114,8 @@
 		6EAA7F341C0CB90D000A870B /* Button.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Button.h; path = Button/Button.h; sourceTree = "<group>"; };
 		6EAA7F3C1C0F3097000A870B /* ChargeRocket.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ChargeRocket.cpp; path = GameObject/Weapon/ExplosiveType/ChargeRocket/ChargeRocket.cpp; sourceTree = "<group>"; };
 		6EAA7F3D1C0F3097000A870B /* ChargeRocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ChargeRocket.h; path = GameObject/Weapon/ExplosiveType/ChargeRocket/ChargeRocket.h; sourceTree = "<group>"; };
+		6EAA7F401C10FB39000A870B /* SineGun.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = SineGun.cpp; path = GameObject/Weapon/BulletType/SineGun/SineGun.cpp; sourceTree = "<group>"; };
+		6EAA7F411C10FB39000A870B /* SineGun.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SineGun.h; path = GameObject/Weapon/BulletType/SineGun/SineGun.h; sourceTree = "<group>"; };
 		6ECCBA981C08868A0012AA69 /* MachineGun.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = MachineGun.cpp; path = GameObject/Weapon/BulletType/MachineGun/MachineGun.cpp; sourceTree = "<group>"; };
 		6ECCBA991C08868A0012AA69 /* MachineGun.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MachineGun.h; path = GameObject/Weapon/BulletType/MachineGun/MachineGun.h; sourceTree = "<group>"; };
 		6EE40EEE1BF8BB6700DE5FD7 /* Level.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Level.cpp; path = Level/Level.cpp; sourceTree = "<group>"; };
@@ -221,6 +224,7 @@
 				6E92F4691C0505F0000104FB /* Pistol */,
 				6ECCBA971C08866B0012AA69 /* MachineGun */,
 				6E92F46B1C050605000104FB /* Shotgun */,
+				6EAA7F3F1C10FB05000A870B /* SineGun */,
 			);
 			name = BulletType;
 			sourceTree = "<group>";
@@ -318,6 +322,15 @@
 				6EAA7F3C1C0F3097000A870B /* ChargeRocket.cpp */,
 			);
 			name = ChargeRocket;
+			sourceTree = "<group>";
+		};
+		6EAA7F3F1C10FB05000A870B /* SineGun */ = {
+			isa = PBXGroup;
+			children = (
+				6EAA7F411C10FB39000A870B /* SineGun.h */,
+				6EAA7F401C10FB39000A870B /* SineGun.cpp */,
+			);
+			name = SineGun;
 			sourceTree = "<group>";
 		};
 		6ECCBA971C08866B0012AA69 /* MachineGun */ = {
@@ -531,6 +544,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6E3D375B1BEA70E400A6F561 /* Enemy.cpp in Sources */,
+				6EAA7F421C10FB39000A870B /* SineGun.cpp in Sources */,
 				6E3D374F1BEA70A300A6F561 /* GameObject.cpp in Sources */,
 				6EAA7F2E1C0B8866000A870B /* Drone.cpp in Sources */,
 				6E92F4771C050687000104FB /* Shotgun.cpp in Sources */,

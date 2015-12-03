@@ -15,9 +15,13 @@ Weapon::Weapon(string _name, int _damage, int _reload, bool _holdFire):reloadTim
 }
 
 void Weapon::checkBullets(){
-    
+    /*
+     Checks if any projectiles (ammo) in weapon is off the screen.
+     If so, delete projectile
+    */
     
     for (int i=0; i<ammo.size(); i++){
+        if(name=="SineGun") {ammo[i].sineMe();} //Checks if gun is the SineGun and moves their projectiles in a sine wave
         ammo[i].move();
         if(ammo[i].checkWallX()){
             ammo.erase(ammo.begin()+i);
@@ -26,6 +30,12 @@ void Weapon::checkBullets(){
 }
 
 void Weapon::fireWeapon(Entity &_entity){
+    /*
+    Checks if player is firing weapon.
+     If so, checks if weapon is allowed to fire.
+     If the weapon can fire, calls fire() function and stops weapon from firing.
+     If the weapon cannot fire then the reload counter starts ticking down and checks whether the weapon has reloaded
+     */
     if(firing){
         if (canFire) {
             fire(_entity);
@@ -38,8 +48,9 @@ void Weapon::fireWeapon(Entity &_entity){
     }
 }
 
-void Weapon::checkRecharge()//Checks if the weapon can be fired again
-{
+void Weapon::checkRecharge(){
+    //Checks if the weapon can be fired again
+
     if(reloadTime-counter>=reloadTime)
     {
         canFire=true;

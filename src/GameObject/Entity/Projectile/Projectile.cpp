@@ -20,5 +20,5 @@ Projectile::Projectile(ofVec2f _pos, int &_dir, int _damage):Entity(_pos),damage
 
 //Moves projectile in a sine wave
 void Projectile::sineMe(){
-    vel.y = sin(ofGetFrameNum())*5;
+    vel.y = sin(sinCount++)*10;
 }

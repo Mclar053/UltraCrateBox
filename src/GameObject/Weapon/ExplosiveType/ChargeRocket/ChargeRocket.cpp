@@ -13,6 +13,8 @@ ChargeRocket::ChargeRocket():ExplosiveType("ChargeRocket", 100, 250, true){
     getSize();
 }
 
+
+//Creates a 3 explosives with different max velocities in the ammo vector
 void ChargeRocket::fire(Entity &_entity){
     for(int i=0; i<3; i++){
          ammo.push_back(Explosive(_entity.pos,_entity.direction,damage));

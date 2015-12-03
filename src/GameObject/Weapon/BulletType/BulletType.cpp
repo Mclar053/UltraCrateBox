@@ -12,6 +12,8 @@ BulletType::BulletType(string _name, int _damage, int _reload, bool _holdFire):W
     
 }
 
+//Creates a single bullet in the ammo vector
+//Pistol and MachineGun use this fire function
 void BulletType::fire(Entity &_entity){
     ammo.push_back(Bullet(_entity.pos,_entity.direction,damage));
 }

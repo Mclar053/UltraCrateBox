@@ -16,6 +16,7 @@
 #include "../../Weapon/BulletType/Pistol/Pistol.h"
 #include "../../Weapon/BulletType/Shotgun/Shotgun.h"
 #include "../../Weapon/BulletType/MachineGun/MachineGun.h"
+#include "../../Weapon/BulletType/SineGun/SineGun.h"
 
 //Including explosive type weapons
 #include "../../Weapon/ExplosiveType/Rocket/Rocket.h"

@@ -28,9 +28,9 @@ public:
     string checkWeaponType();
     
     //Firing controls
-    void fireWeapon(Entity &_entity);
-    virtual void fire(Entity &_entity);
-    void checkHoldFire(Entity &_entity);
+    void fireWeapon(Entity &_entity); //Fires projectiles from weapon
+    virtual void fire(Entity &_entity); //Virtual functions so child classes can overload due to each weapon having different behaviours
+    void checkHoldFire(Entity &_entity); //Checks if weapon has reload time
     void checkRecharge();
     void resetWeapon();
     

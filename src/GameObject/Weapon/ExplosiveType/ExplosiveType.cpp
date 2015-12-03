@@ -12,6 +12,8 @@ ExplosiveType::ExplosiveType(string _name, int _damage, int _reload, bool _holdF
     
 }
 
+//Creates a single explosive in the ammo vector
+//Rocket uses this function
 void ExplosiveType::fire(Entity &_entity){
     ammo.push_back(Explosive(_entity.pos,_entity.direction,damage));
 }

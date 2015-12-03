@@ -22,6 +22,7 @@ Player::Player(ofVec2f _pos):Entity(_pos),currentWeapon(0){
     weapons.push_back(new Rocket());
     weapons.push_back(new MachineGun());
     weapons.push_back(new ChargeRocket());
+    weapons.push_back(new SineGun());
 }
 
 void Player::display(){
