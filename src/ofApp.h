@@ -33,6 +33,7 @@ public:
     void drawButtons(int _buttonPos);
     void drawOptions();
     
+    //Returns an image from the filepath provided
     ofImage getImage(string filepath);
     
     //Main control functions
@@ -54,7 +55,7 @@ public:
     vector<Enemy*> enemies;
     Pickup pickup;
     
-    int score;
+    int score; //Player score
     
     //Text for testing purposes
     ofTrueTypeFont optionsText;
@@ -76,8 +77,8 @@ public:
 
     bool gameOver;
     bool pause;
-    int state;
-    bool up;
+    int state; //Screen states
+    bool up; //Allows player to jump
     
-    ofSoundPlayer music;
+    ofSoundPlayer music; //Background music for the game
 };

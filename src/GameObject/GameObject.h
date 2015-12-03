@@ -19,8 +19,8 @@ public:
     GameObject();
     GameObject(ofVec2f _pos);
     //Methods
-    virtual void display();
-    void getSize();
+    virtual void display(); //Virtual to allow other child classes to overwrite it
+    void getSize(); //Gets size of the gameSprite
     
     //Properties
     Sprite gameSprite;

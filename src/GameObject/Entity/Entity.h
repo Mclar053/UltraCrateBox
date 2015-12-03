@@ -26,18 +26,18 @@ public:
     void applyGravity();
     void friction();
     void move();
-    void speedControl();
-    void moveX(int _dir);
-    void yControl();
-    void stopMoveX();
+    void speedControl(); //Stops entity from moving to fast horizontally
+    void moveX(int _dir); //Moves entity in direction they are facing
+    void yControl(); //Gravity control
+    void stopMoveX(); //Stop running
     
     //Collisions
     bool checkEntity(Entity &_entity);
     
     //Features
-    void wallWrap();
-    bool checkWallX();
-    bool checkWallY();
+    void wallWrap(); //Allows entities to move to other side of screen
+    bool checkWallX(); //Checks between x<0 and x>width
+    bool checkWallY(); //Checks between y<0 and y>height
     
     /*Properties*/
     ofVec2f MAX_VEL; //Maximum Velocity

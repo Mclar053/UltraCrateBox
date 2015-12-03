@@ -21,7 +21,6 @@ public:
     /*Methods*/
     void loadLevel(string level);
     
-    
     /*Properties*/
     vector<vector<int>> layout;
 };

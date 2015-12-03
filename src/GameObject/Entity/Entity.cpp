@@ -64,6 +64,7 @@ void Entity::move(){
     wallWrap(); //Moves entity to other side of screen if entity walks past the edge
 }
 
+//Moves entity in the direction they are facing
 void Entity::moveX(int _dir){
     direction = _dir;
     if(moving){
@@ -71,6 +72,7 @@ void Entity::moveX(int _dir){
     }
 }
 
+//Applies gravity if entity is not on a platform
 void Entity::yControl(){
     if(!onPlatform){
         applyGravity();
@@ -78,6 +80,7 @@ void Entity::yControl(){
     }
 }
 
+//Controls x velocity
 void Entity::speedControl(){
     if(vel.x>MAX_VEL.x){
         vel.x = MAX_VEL.x;
@@ -92,6 +95,7 @@ void Entity::stopMoveX(){
     acc.x=0;
 }
 
+//Moves entity to other side of screen
 void Entity::wallWrap(){
     if(pos.x<-10){
         pos.x=ofGetWidth()-110;
@@ -101,6 +105,7 @@ void Entity::wallWrap(){
     }
 }
 
+//Checks if entity is outside of walls horizontally
 bool Entity::checkWallX(){
     if(pos.x<-9 || pos.x>ofGetWidth()-111){
         return true;
@@ -108,6 +113,7 @@ bool Entity::checkWallX(){
     return false;
 }
 
+//Checks if entity is outside of walls vertically
 bool Entity::checkWallY(){
     if (pos.y<0 || pos.y>ofGetHeight()) {
         return true;
@@ -115,6 +121,7 @@ bool Entity::checkWallY(){
     return false;
 }
 
+//Checks if current entity has collided with another entity
 bool Entity::checkEntity(Entity &_entity){
     if(_entity.pos.x+_entity.size.x/2>pos.x-size.x/2 &&
        _entity.pos.x-_entity.size.x/2<=pos.x+size.x/2 &&

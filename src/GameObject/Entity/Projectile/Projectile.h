@@ -12,8 +12,6 @@
 #include "../Entity.h"
 #include <stdio.h>
 
-//This is a placeholder. Will work on later
-
 //Projectile will have child classes of different types of projectile, e.g. Bullets...
 //Projectiles will be emitted out of different weapons. E.g Pistol will use bullets
 
@@ -22,10 +20,10 @@ class Projectile: public Entity{
 public:
     Projectile(ofVec2f _pos, int &_dir, int _damage);
 
-    void sineMe();
+    void sineMe(); //Moves in a sine wave
     
-    int damage;
-    int explosionRadius;
+    int damage; //Carries damage from weapon
+    int explosionRadius; //Damages enemies within explosion radius
 };
 
 #endif /* defined(__UltraCrateBox__Projectile__) */

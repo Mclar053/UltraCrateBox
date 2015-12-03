@@ -26,10 +26,14 @@ void Enemy::checkAlive(){
     }
 }
 
+//Changes direction of the enemy
 void Enemy::changeDirection(){
     moveX(-direction);
 }
 
+/*
+ If enemy has not fallen already then enemy will 'enrage' by changing game sprite and increasing velocity by a 1.5 multiplier
+ */
 void Enemy::enrage(){
     if(!fallen){
         gameSprite.createSprite("sprites/entities/"+type+"/enrage/");

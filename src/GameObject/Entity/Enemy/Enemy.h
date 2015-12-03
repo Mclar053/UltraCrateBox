@@ -13,7 +13,7 @@
 #include <stdio.h>
 
 //Base for all enemies - enemy types will be created like Drone and Tank than Enemy
-//Those types will inherit this one
+//Those types inherit this one
 
 //Enemy inherits from Entity
 class Enemy: public Entity{

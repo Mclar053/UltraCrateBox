@@ -17,6 +17,8 @@ Fire::Fire(ofVec2f _pos):Tile(_pos){
     getSize();
 }
 
+
+//Allows the tile to animate
 void Fire::display(){
     glPushMatrix();
         glTranslated(pos.x, pos.y, 0);

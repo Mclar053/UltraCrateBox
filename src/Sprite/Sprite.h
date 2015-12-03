@@ -23,7 +23,7 @@ public:
     //Methods
     void createSprite(string _folderPath);
     void display();
-    void moveNextFrame();
+    void moveNextFrame(); //Moves sprite to the next frame
     
     //Properties
     vector<ofImage> sprite;

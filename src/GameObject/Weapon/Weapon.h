@@ -12,8 +12,6 @@
 #include "../GameObject.h"
 #include "../Entity/Projectile/Bullet/Bullet.h"
 #include "../Entity/Projectile/Explosive/Explosive.h"
-//#include "../Entity/Projectile/Bullet/Bullet.h"
-//#include "../Entity/Projectile/Bullet/Bullet.h"
 #include <stdio.h>
 
 //Weapons will emit projectiles when used.

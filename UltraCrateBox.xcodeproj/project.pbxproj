@@ -164,7 +164,6 @@
 				6E3D37671BEB81BD00A6F561 /* Weapon.cpp */,
 				6E92F46C1C05060C000104FB /* BulletType */,
 				6E92F46D1C050612000104FB /* ExplosiveType */,
-				6E92F46E1C05061B000104FB /* LaserType */,
 			);
 			name = Weapon;
 			sourceTree = "<group>";
@@ -235,13 +234,6 @@
 				6E92F46A1C0505F8000104FB /* Rocket */,
 			);
 			name = ExplosiveType;
-			sourceTree = "<group>";
-		};
-		6E92F46E1C05061B000104FB /* LaserType */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = LaserType;
 			sourceTree = "<group>";
 		};
 		6E92F47E1C050784000104FB /* Bullet */ = {

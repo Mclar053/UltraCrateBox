@@ -15,6 +15,10 @@ Button::Button(ofVec2f _pos, ofVec2f _size, string _text):pos(_pos),size(_size),
 Button::Button(ofVec2f _pos, ofVec2f _size, string _text, ofColor _col):pos(_pos),size(_size),text(_text),colour(_col){
 }
 
+/*
+ -Displays the button on the screen with a colour provided
+ -Has a font as a parameter in order to draw text to the screen
+ */
 void Button::display(ofTrueTypeFont *_font){
     ofPushMatrix();
     ofTranslate(pos.x,pos.y);
@@ -40,6 +44,7 @@ void Button::display(ofTrueTypeFont *_font){
     ofPopMatrix();
 }
 
+//Checks if mouse has clicked inside the button
 bool Button::clicked(float _mouseX, float _mouseY){
     if(_mouseX-pos.x<size.x &&
        _mouseX-pos.x>0 &&
