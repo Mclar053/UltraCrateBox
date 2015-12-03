@@ -36,7 +36,8 @@ public:
     
     //Features
     void wallWrap();
-    bool checkWall();
+    bool checkWallX();
+    bool checkWallY();
     
     /*Properties*/
     ofVec2f MAX_VEL; //Maximum Velocity

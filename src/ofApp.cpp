@@ -18,7 +18,8 @@ void ofApp::setup(){
             Button(ofVec2f(ofGetWidth()/2-100,430),ofVec2f(200,60),"Exit")
         },
         {
-            Button(ofVec2f(ofGetWidth()/2-100,ofGetHeight()/2-30),ofVec2f(200,60),"Main Menu"),
+            Button(ofVec2f(ofGetWidth()/2-100,ofGetHeight()/2+30),ofVec2f(200,60),"Main Menu"),
+            Button(ofVec2f(ofGetWidth()/2-100,ofGetHeight()/2-50),ofVec2f(200,60),"Reset"),
             Button(ofVec2f(ofGetWidth()/2-100,ofGetHeight()/2-130),ofVec2f(200,60),"PAUSED",ofColor(235, 71, 71))
         },
         {
@@ -27,13 +28,18 @@ void ofApp::setup(){
         },
         {
             Button(ofVec2f(20,ofGetHeight()-150),ofVec2f(200,60),"Main Menu")
+        },
+        {
+            Button(ofVec2f(150,ofGetHeight()/2-100),ofVec2f(200,60),"Level 1"),
+            Button(ofVec2f(400,ofGetHeight()/2-100),ofVec2f(200,60),"Level 2"),
+            Button(ofVec2f(650,ofGetHeight()/2-100),ofVec2f(200,60),"Level 3"),
+            Button(ofVec2f(400,ofGetHeight()/2+50),ofVec2f(200,60),"Main Menu")
         }
     };
     
 
     
     //Creates level from Level object
-    reset();
     state = 0;
     posOffset.set(52,44);
 }
@@ -86,7 +92,7 @@ void ofApp::update(){
 
 //--------------------------------------------------------------
 void ofApp::draw(){
-    ofBackground(255);
+    ofBackground(225);
     switch(state){
         case 1:
             glPushMatrix();
@@ -132,6 +138,13 @@ void ofApp::draw(){
         case 3:
             drawButtons(3);
             drawOptions();
+            break;
+        case 4:
+            ofPushStyle();
+                ofSetColor(0);
+                scoreText.drawString("Level Select", ofGetWidth()/2-100, 100);
+            ofPopStyle();
+            drawButtons(4);
             break;
         default:
             ofPushStyle();
@@ -359,7 +372,11 @@ void ofApp::collisions(){
         score++;
     }
     
-    if(pickup.checkWall()){
+    if(player.checkWallY()){
+        state=2;
+    }
+    
+    if(pickup.checkWallX() || pickup.checkWallY()){
         pickup.pos = ofVec2f(rand()%ofGetWidth(),rand()%ofGetHeight());
     }
     
@@ -497,6 +514,9 @@ void ofApp::mousePressed(int x, int y, int button){
             if(buttons[1][0].clicked(x, y) && pause){
                 state=0;
             }
+            else if (buttons[1][1].clicked(x, y) && pause){
+                reset();
+            }
             break;
         case 2:
             if(buttons[2][0].clicked(x,y)){
@@ -512,9 +532,26 @@ void ofApp::mousePressed(int x, int y, int button){
                 state=0;
             }
             break;
+        case 4:
+            if(buttons[4][0].clicked(x, y)){
+                level.loadLevel("level1.txt");
+                reset();
+            }
+            else if(buttons[4][1].clicked(x, y)){
+                level.loadLevel("level2.txt");
+                reset();
+            }
+            else if(buttons[4][2].clicked(x, y)){
+                level.loadLevel("level3.txt");
+                reset();
+            }
+            else if(buttons[4][3].clicked(x, y)){
+                state=0;
+            }
+            break;
         default:
             if(buttons[0][0].clicked(x, y)){
-                reset();
+                state=4;
             }
             else if (buttons[0][1].clicked(x, y)){
                 state=3;

@@ -19,7 +19,7 @@ void Weapon::checkBullets(){
     
     for (int i=0; i<ammo.size(); i++){
         ammo[i].move();
-        if(ammo[i].checkWall()){
+        if(ammo[i].checkWallX()){
             ammo.erase(ammo.begin()+i);
         }
     }

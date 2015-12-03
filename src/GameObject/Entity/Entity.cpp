@@ -101,8 +101,15 @@ void Entity::wallWrap(){
     }
 }
 
-bool Entity::checkWall(){
-    if(pos.x<-9 || pos.x>ofGetWidth()-111 || pos.y<0 || pos.y>ofGetHeight()){
+bool Entity::checkWallX(){
+    if(pos.x<-9 || pos.x>ofGetWidth()-111){
+        return true;
+    }
+    return false;
+}
+
+bool Entity::checkWallY(){
+    if (pos.y<0 || pos.y>ofGetHeight()) {
         return true;
     }
     return false;

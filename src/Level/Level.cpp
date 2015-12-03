@@ -14,11 +14,9 @@ Level::Level(){
     for (auto &i: layout){
         i.resize(33);
     }
-    
-    loadLevel();
 }
 
-void Level::loadLevel(){
+void Level::loadLevel(string level){
     ifstream file;
     string sub, textLine;
     int xCount;
@@ -26,7 +24,7 @@ void Level::loadLevel(){
     xCount = 0;
     yCount = 0;
     
-    file.open (ofToDataPath("levels/testLevel.txt"));
+    file.open (ofToDataPath("levels/"+level));
     while(!file.eof()) // To get you all the lines.
     {
         getline(file,textLine); // Saves the line in STRING.

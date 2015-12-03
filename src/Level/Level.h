@@ -19,8 +19,7 @@ public:
     Level();
     
     /*Methods*/
-    void loadLevel();
-    void saveLevel();
+    void loadLevel(string level);
     
     
     /*Properties*/
